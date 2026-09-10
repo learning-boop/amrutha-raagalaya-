@@ -1,26 +1,41 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-offwhite: #FFFDF8;
+  --color-cream: #FBF3E3;
+  --color-cream-2: #F3E7CF;
+  --color-maroon: #6A1419;
+  --color-maroon-2: #521015;
+  --color-gold: #B46F19;
+  --color-gold-soft: #D9B77A;
+  --color-ink: #46281E;
+  --color-ink-2: #7A5C50;
+  --color-line: #E6D7B8;
+  --font-serif: var(--font-cormorant), Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-inter), "Source Sans 3", system-ui, sans-serif;
+  --shadow-soft: 0 8px 28px rgba(70, 40, 30, 0.08);
+  --radius-card: 16px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+html { scroll-behavior: smooth; }
+body { background: var(--color-offwhite); color: var(--color-ink); font-family: var(--font-sans); -webkit-font-smoothing: antialiased; }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 600; line-height: 1.12; color: var(--color-maroon); text-wrap: balance; }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.eyebrow { font-size: .74rem; letter-spacing: .16em; text-transform: uppercase; color: var(--color-gold); font-weight: 600; }
+
+.divider { display: flex; align-items: center; gap: 10px; margin: 14px 0 22px; color: var(--color-gold); }
+.divider::before, .divider::after { content: ""; height: 1px; width: 38px; background: var(--color-gold); }
+.divider-center { justify-content: center; }
+
+.photo-placeholder { background: linear-gradient(160deg, #C9A06A, #8C4B32); }
+.photo-placeholder::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 110%, rgba(0,0,0,.35), transparent 60%); }
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary .faq-icon::after { content: "+"; }
+details[open] > summary .faq-icon::after { content: "–"; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
 }
