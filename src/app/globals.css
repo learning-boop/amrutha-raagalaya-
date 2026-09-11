@@ -39,3 +39,20 @@ details[open] > summary .faq-icon::after { content: "–"; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+/* Hero slideshow (concept 06) — 4 slides × 6s; each fades in over 1s, holds, fades out */
+.hero-slide { opacity: 0; animation-name: hero-fade; animation-timing-function: ease-in-out; animation-iteration-count: infinite; }
+@keyframes hero-fade { 0% { opacity: 0; } 4% { opacity: 1; } 25% { opacity: 1; } 29% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes hero-dot { 0% { transform: scaleX(0); } 25% { transform: scaleX(1); } 25.01% { transform: scaleX(0); } 100% { transform: scaleX(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none !important; opacity: 0; }
+  .hero-slide:first-of-type { opacity: 1; }
+  .hero-dot > i { animation: none !important; transform: scaleX(1); }
+}
+
+/* Hover lift — cards rise 4px with a deeper soft shadow; photos inside zoom 3% */
+.lift { transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; will-change: transform; }
+.lift:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(70, 40, 30, 0.14); border-color: var(--color-gold-soft); }
+.lift-img img { transition: transform .6s ease; }
+.lift-img:hover img, .lift:hover .lift-img img { transform: scale(1.04); }
+@media (prefers-reduced-motion: reduce) { .lift, .lift-img img { transition: none; } .lift:hover { transform: none; } .lift:hover .lift-img img, .lift-img:hover img { transform: none; } }

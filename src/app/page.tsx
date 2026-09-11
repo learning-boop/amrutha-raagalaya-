@@ -24,18 +24,19 @@ export default function HomePage() {
     <>
       {/* Hero — one photo, one message, two buttons */}
       <section className="relative min-h-[560px] lg:min-h-[640px] flex items-end overflow-hidden">
-        <Image src="/images/concert-temple-stage.jpg" alt="A Carnatic concert with singer, mridangam and violin before a temple backdrop" fill priority sizes="100vw" className="object-cover object-[60%_center]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#2A0A0D] via-[#2A0A0D]/70 to-[#2A0A0D]/10" />
-        <Container className="relative pb-14 pt-40 lg:pb-20 text-[#FFF8EC]">
-          <p className="eyebrow !text-gold-soft">Carnatic music academy · Guntur</p>
-          <h1 className="mt-3 max-w-[16ch] text-4xl sm:text-5xl lg:text-6xl !text-[#FFF8EC]">Where children learn the timeless art of Carnatic music</h1>
-          <p className="mt-4 max-w-[52ch] text-lg text-[#FFF8EC]/85">Classes for ages 4-15, and devotional music for temples, weddings and cultural occasions.</p>
+        <Image src="/images/classroom-hero.jpg" alt="Guru teaching a group of children Carnatic vocals in the Amrutha Raagalaya classroom" fill priority sizes="100vw" className="object-cover object-[75%_center]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2A0A0D] via-[#2A0A0D]/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2A0A0D]/45 to-transparent" />
+        <div className="relative w-full px-5 sm:pl-[22%] lg:pl-[21%] xl:pl-[19%] pb-14 pt-64 lg:pb-16 lg:pt-80 text-[#FFF8EC]">
+          <p className="eyebrow !text-gold-soft">Carnatic music academy · Vijayawada</p>
+          <h1 className="mt-3 max-w-[22ch] text-4xl sm:text-5xl lg:text-[3.4rem] !text-[#FFF8EC]">Where voices are carved by the sacred art of Carnatic sangeetham</h1>
+          <p className="mt-4 max-w-[52ch] text-lg text-[#FFF8EC]/85">Classes for ages 4–15, and devotional music for temples, weddings and cultural occasions.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={waLink(messages.classes)} external variant="onMaroon"><WhatsAppIcon /> Enquire About Classes</Button>
             <Button href="/devotional-programs" variant="onMaroonOutline">Book a Program</Button>
           </div>
           <p className="mt-5 text-[0.85rem] text-[#FFF8EC]/75">Trial class available · No prior music knowledge needed</p>
-        </Container>
+        </div>
       </section>
 
       {/* Three words that define the academy */}
@@ -55,18 +56,18 @@ export default function HomePage() {
         <Container>
           <SectionHeading eyebrow="What we do" title="Two ways to be part of the tradition" />
           <div className="mt-10 grid gap-7 md:grid-cols-2">
-            <article className="group bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
-              <Photo src="/images/veena-player-saree.jpg" alt="A musician in a traditional saree playing the veena" className="aspect-[4/3]" />
+            <article className="lift bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
+              <Photo src="/images/girl-singing.jpg" alt="A musician in a traditional saree playing the veena" className="aspect-[4/3]" />
               <div className="p-7 flex flex-col gap-3 flex-1">
                 <h3 className="text-2xl">Carnatic Classes for Children</h3>
-                <p className="text-ink-2">Ages 7 to 15. Step by step, from the first swara to the first stage — in a warm, disciplined classroom.</p>
+                <p className="text-ink-2">Ages 4 to 15. Step by step, from the first swara to the first stage — in a warm, disciplined classroom.</p>
                 <div className="mt-auto pt-2 flex flex-wrap items-center gap-4">
                   <Button href={waLink(messages.classes)} external>Enquire About Classes</Button>
                   <Link href="/carnatic-music-classes" className="font-semibold text-maroon hover:underline">Learn more →</Link>
                 </div>
               </div>
             </article>
-            <article className="group bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
+            <article className="lift bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
               <Photo src="/images/temple-pillars-concert.jpg" alt="Devotional concert among lamp-lit temple pillars" className="aspect-[4/3]" />
               <div className="p-7 flex flex-col gap-3 flex-1">
                 <h3 className="text-2xl">Devotional &amp; Traditional Programs</h3>
@@ -95,8 +96,8 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-            <div className="mt-7 flex gap-4 items-center bg-offwhite border border-line rounded-card px-4.5 py-4">
-              <Photo src="/images/guru-singing-480.jpg" alt={`${site.teacher} playing the veena`} className="w-[68px] h-[68px] rounded-full shrink-0 border border-gold/60" />
+            <div className="lift mt-7 flex gap-4 items-center bg-offwhite border border-line rounded-card px-4.5 py-4">
+              <Photo src="/images/guru-singing-480.jpg" alt={`${site.teacher}, founder and principal teacher`} className="w-[68px] h-[68px] rounded-full shrink-0 border border-gold/60" />
               <div><b className="block font-serif font-semibold text-[1.25rem] text-maroon">{site.teacher}</b><p className="text-[0.85rem] text-ink-2">Founder &amp; principal teacher · <Link href="/about" className="text-maroon font-semibold hover:underline">About the academy →</Link></p></div>
             </div>
           </div>
@@ -117,7 +118,7 @@ export default function HomePage() {
           <SectionHeading eyebrow="Gallery" title="Moments from the academy" />
           <div className="mt-9 grid grid-cols-2 md:grid-cols-4 auto-rows-[160px] md:auto-rows-[210px] gap-3">
             {moments.map((m) => (
-              <Photo key={m.src} src={m.src} alt={m.alt} className={`rounded-xl ${m.big ? "col-span-2 row-span-2" : ""}`} sizes="(max-width: 768px) 50vw, 25vw" />
+              <Photo key={m.src} src={m.src} alt={m.alt} className={`rounded-xl lift ${m.big ? "col-span-2 row-span-2" : ""}`} sizes="(max-width: 768px) 50vw, 25vw" />
             ))}
           </div>
           <div className="text-center mt-8"><Button href="/gallery" variant="outline">View Full Gallery</Button></div>

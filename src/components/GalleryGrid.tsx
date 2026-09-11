@@ -14,7 +14,7 @@ export default function GalleryGrid() {
         ))}
       </div>
       <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] md:auto-rows-[220px] gap-3">
-        {items.map((g) => (<Photo key={g.caption} src={g.src} alt={g.caption} caption={g.caption} className="rounded-xl" sizes="(max-width: 768px) 50vw, 25vw" />))}
+        {items.map((g) => (<Photo key={g.caption} src={g.src} alt={g.caption} caption={g.caption} className="rounded-xl lift" sizes="(max-width: 768px) 50vw, 25vw" />))}
       </div>
     </div>
   );

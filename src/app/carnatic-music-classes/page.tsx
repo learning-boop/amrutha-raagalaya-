@@ -10,7 +10,7 @@ import { Icon, WhatsAppIcon } from "@/components/Icon";
 import { faqs } from "@/lib/content";
 import { waLink, messages } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Carnatic Music Classes for Children (Ages 4-15)", description: "Structured Carnatic music classes for children aged 4-15 in Guntur. What your child learns, our teaching approach, benefits, class details and FAQs." };
+export const metadata: Metadata = { title: "Carnatic Music Classes for Children (Ages 4–15)", description: "Structured Carnatic music classes for children aged 4–15 in Vijayawada. What your child learns, our teaching approach, benefits, class details and FAQs." };
 
 const learn = ["Voice, pitch and shruti with the tambura", "Varisai — the rhythmic foundation", "Geethams and simple devotional songs", "Varnams for voice control", "Kritis of the great composers", "Stage presence and confidence"];
 const benefits = [
@@ -21,10 +21,10 @@ const benefits = [
 ];
 const details = [
   { icon: "hands", label: "Age group", value: "4 to 15 years" },
-  { icon: "note", label: "Format", value: "Small-group batches (also online for students outside Guntur)" },
+  { icon: "note", label: "Format", value: "Small-group batches (also online for students outside Vijayawada)" },
   { icon: "clock", label: "Timings", value: "Weekday evenings and weekends" },
   { icon: "lamp", label: "Trial class", value: "Available — meet the teacher before you decide" },
-  { icon: "pin", label: "Location", value: "Guntur, Andhra Pradesh" },
+  { icon: "pin", label: "Location", value: "Vijayawada, Andhra Pradesh" },
   { icon: "temple", label: "Performances", value: "Temple festivals, Annual Day and cultural events" },
 ];
 
@@ -71,7 +71,7 @@ export default function ClassesPage() {
           <SectionHeading eyebrow="Benefits" title="Why Carnatic music is good for your child" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b) => (
-              <div key={b.title} className="bg-offwhite border border-line rounded-card p-6 flex flex-col gap-2.5">
+              <div key={b.title} className="lift bg-offwhite border border-line rounded-card p-6 flex flex-col gap-2.5">
                 <Icon name={b.icon} className="w-9 h-9 text-gold" />
                 <h3 className="text-[1.3rem]">{b.title}</h3>
                 <p className="text-[0.9rem] text-ink-2">{b.text}</p>

@@ -6,11 +6,11 @@ export const site = {
     "Authentic Carnatic music classes for children aged 7–15 in Vijayawada, and devotional music programs for temples, weddings and cultural occasions.",
   url: "https://amrutharaagalaya.com", // TODO: replace with the live domain
   // TODO: replace with the academy's real numbers (country code, no + or spaces for WhatsApp)
-  whatsapp: "9182564906",
-  phone: "+9182564906",
+  whatsapp: "919999999999",
+  phone: "+91 99999 99999",
   email: "chandana.singer@gmail.com",
   teacher: "Chandana Nerella", // TODO: confirm the guru's name and title with the client
-  address: "Guntur, Andhra Pradesh, India",
+  address: "Vijayawada, Andhra Pradesh, India",
   mapEmbed: "https://www.google.com/maps?q=Vijayawada,+Andhra+Pradesh&output=embed",
   timings: "Weekday evenings & weekends",
   social: {
@@ -22,6 +22,7 @@ export const site = {
 };
 
 export const nav = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/carnatic-music-classes", label: "Carnatic Classes" },
   { href: "/devotional-programs", label: "Programs" },

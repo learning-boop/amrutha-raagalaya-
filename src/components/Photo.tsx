@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function Photo({ src, alt, caption, className = "", sizes = "(max-width: 768px) 100vw, 50vw", priority }: { src?: string; alt: string; caption?: string; className?: string; sizes?: string; priority?: boolean }) {
   if (src) {
     return (
-      <div className={`relative overflow-hidden ${className}`}>
+      <div className={`relative overflow-hidden lift-img ${className}`}>
         <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover" />
       </div>
     );
