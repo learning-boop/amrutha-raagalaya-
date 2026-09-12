@@ -28,6 +28,7 @@ export const nav = [
   { href: "/devotional-programs", label: "Programs" },
   { href: "/gallery", label: "Gallery" },
   { href: "/testimonials", label: "Testimonials" },
+  { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
 

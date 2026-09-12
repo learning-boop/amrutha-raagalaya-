@@ -1,11 +1,13 @@
 "use client";
 import { useState } from "react";
 import Photo from "./Photo";
-import { gallery, galleryCategories, type GalleryCategory } from "@/lib/content";
+import { galleryCategories, type GalleryCategory } from "@/lib/content";
 
-export default function GalleryGrid() {
+export type GalleryGridItem = { id: string; category: GalleryCategory; caption: string; src?: string };
+
+export default function GalleryGrid({ items }: { items: GalleryGridItem[] }) {
   const [active, setActive] = useState<GalleryCategory | "all">("all");
-  const items = active === "all" ? gallery : gallery.filter((g) => g.category === active);
+  const shown = active === "all" ? items : items.filter((g) => g.category === active);
   return (
     <div>
       <div className="flex flex-wrap justify-center gap-2 mt-8" role="tablist" aria-label="Gallery categories">
@@ -14,7 +16,7 @@ export default function GalleryGrid() {
         ))}
       </div>
       <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 auto-rows-[160px] md:auto-rows-[220px] gap-3">
-        {items.map((g) => (<Photo key={g.caption} src={g.src} alt={g.caption} caption={g.caption} className="rounded-xl lift" sizes="(max-width: 768px) 50vw, 25vw" />))}
+        {shown.map((g) => (<Photo key={g.id} src={g.src} alt={g.caption} caption={g.caption} className="rounded-xl lift" sizes="(max-width: 768px) 50vw, 25vw" />))}
       </div>
     </div>
   );

@@ -56,3 +56,22 @@ details[open] > summary .faq-icon::after { content: "–"; }
 .lift-img img { transition: transform .6s ease; }
 .lift-img:hover img, .lift:hover .lift-img img { transform: scale(1.04); }
 @media (prefers-reduced-motion: reduce) { .lift, .lift-img img { transition: none; } .lift:hover { transform: none; } .lift:hover .lift-img img, .lift-img:hover img { transform: none; } }
+
+/* Blog post body — shared by the public post page and the admin editor. */
+.post-body { color: var(--color-ink); line-height: 1.75; }
+.post-body > * + * { margin-top: 1.1em; }
+.post-body h2 { font-size: 1.65rem; margin-top: 1.9em; }
+.post-body h3 { font-size: 1.3rem; margin-top: 1.6em; }
+.post-body p { font-size: 1.02rem; }
+.post-body a { color: var(--color-maroon); text-decoration: underline; text-underline-offset: 3px; }
+.post-body a:hover { color: var(--color-gold); }
+.post-body ul, .post-body ol { padding-left: 1.4em; }
+.post-body ul { list-style: disc; }
+.post-body ol { list-style: decimal; }
+.post-body li + li { margin-top: .4em; }
+.post-body blockquote { border-left: 3px solid var(--color-gold); padding-left: 1em; font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--color-ink-2); }
+.post-body img { border-radius: 12px; }
+.post-body hr { border: 0; border-top: 1px solid var(--color-line); }
+.post-body code { background: var(--color-cream); padding: .1em .35em; border-radius: 4px; font-size: .9em; }
+/* Placeholder shown in the editor when the post is empty. */
+.post-body:focus { outline: none; }

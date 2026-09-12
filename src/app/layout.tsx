@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import StickyEnquiryBar from "@/components/StickyEnquiryBar";
 import { site } from "@/lib/site";
 
 // Self-hosted (Google Fonts files bundled locally) — no runtime request to Google.
@@ -54,10 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="en" className={`${cormorant.variable} ${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <StickyEnquiryBar />
+        {children}
       </body>
     </html>
   );
