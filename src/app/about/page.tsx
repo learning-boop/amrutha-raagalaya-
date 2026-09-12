@@ -7,7 +7,7 @@ import { Icon } from "@/components/Icon";
 import { values } from "@/lib/content";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "About the Academy", description: `The story, vision, teaching philosophy and cultural values of ${site.name}, a devotional Carnatic music academy in Guntur.` };
+export const metadata: Metadata = { title: "About the Academy", description: `The story, vision, teaching philosophy and cultural values of ${site.name}, a devotional Carnatic music academy in Vijayawada.` };
 
 const philosophy = [
   { icon: "veena", title: "Authenticity first", text: "We teach the Carnatic system as it has been passed down — swara, tala, sahitya and bhava — without shortcuts." },
@@ -29,18 +29,18 @@ export default function AboutPage() {
               <p className="font-serif italic text-xl text-ink">“Music is not only something we learn. It is a tradition we nurture, a culture we carry forward, and a harmony we share.”</p>
             </div>
           </div>
-          <Photo src="/images/veena-temple.jpg" alt="A Saraswati veena with a lamp and jasmine garland" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" />
+          <Photo src="/images/real/guru-harmonium-ensemble.jpg" alt="The guru with students at the harmonium" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 50vw" />
         </Container>
       </section>
 
       <section className="bg-cream py-16 lg:py-22">
         <Container className="grid gap-8 md:grid-cols-2">
-          <div className="bg-offwhite border border-line rounded-card p-8">
+          <div className="lift bg-offwhite border border-line rounded-card p-8">
             <Icon name="lotus" className="w-9 h-9 text-gold mb-3" />
             <h2 className="text-3xl">Our vision</h2>
             <p className="mt-3 text-ink-2">A generation of children who carry Indian classical and devotional music forward with confidence, discipline and love — keeping the tradition alive in homes, temples and communities.</p>
           </div>
-          <div className="bg-offwhite border border-line rounded-card p-8">
+          <div className="lift bg-offwhite border border-line rounded-card p-8">
             <Icon name="note" className="w-9 h-9 text-gold mb-3" />
             <h2 className="text-3xl">Our mission</h2>
             <p className="mt-3 text-ink-2">To teach authentic Carnatic music to children in a warm, structured environment, and to offer devotional and traditional music programs that honour every sacred occasion.</p>
@@ -78,8 +78,8 @@ export default function AboutPage() {
       </section>
 
       <section className="py-16 lg:py-22">
-        <Container className="grid gap-10 md:grid-cols-[.8fr_1.2fr] md:items-center">
-        <Photo src="/images/guru-singing.jpg" alt={`${site.teacher}, founder of Amrutha Raagalaya, singing`} className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px] max-w-[380px] mx-auto w-full border-[3px] border-gold shadow-soft" sizes="(max-width: 768px) 90vw, 380px" />
+        <Container className="grid gap-10 md:grid-cols-[.9fr_1.1fr] md:items-center">
+          <Photo src="/images/guru-singing.jpg" alt={`${site.teacher}, founder of Amrutha Raagalaya, singing`} className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px] max-w-[380px] mx-auto w-full border-[3px] border-gold shadow-soft" sizes="(max-width: 768px) 90vw, 380px" />
           <div>
             <SectionHeading center={false} eyebrow="Instructor · Meet the Guru" title={site.teacher} />
             <div className="mt-4 grid gap-3 text-ink-2 max-w-[62ch]">

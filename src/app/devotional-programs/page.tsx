@@ -24,14 +24,14 @@ export default function ProgramsPage() {
               <Button href="#programs" variant="outline">See program types</Button>
             </div>
           </div>
-          <Photo src="/images/om-stage-singer.jpg" alt="A devotional vocal concert on stage" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" />
+          <Photo src="/images/real/group-devotional-hall.jpg" alt="Devotional singing in a decorated hall" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" />
         </Container>
       </section>
 
       <section id="programs" className="bg-cream py-16 lg:py-22 scroll-mt-20">
         <Container className="grid gap-8">
           {programs.map((p, i) => (
-            <article key={p.slug} id={p.slug} className={`grid gap-8 md:grid-cols-2 md:items-center bg-offwhite border border-line rounded-card overflow-hidden scroll-mt-24 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
+            <article key={p.slug} id={p.slug} className={`grid gap-8 md:grid-cols-2 md:items-center lift bg-offwhite border border-line rounded-card overflow-hidden scroll-mt-24 ${i % 2 ? "md:[&>*:first-child]:order-2" : ""}`}>
               <Photo src={p.image} alt={`${p.title} — devotional music`} className="aspect-video md:aspect-[4/3] md:h-full" />
               <div className="p-7 md:p-9 flex flex-col gap-3">
                 <Icon name={p.icon} className="w-9 h-9 text-gold" />

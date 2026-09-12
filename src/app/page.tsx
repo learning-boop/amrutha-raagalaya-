@@ -12,30 +12,38 @@ import { values, whyUs, testimonials } from "@/lib/content";
 import { waLink, messages, site } from "@/lib/site";
 
 const moments = [
-  { src: "/images/temple-pillars-concert.jpg", alt: "Devotional concert among temple pillars", big: true },
-  { src: "/images/veena-hands.jpg", alt: "Hands on the veena strings" },
-  { src: "/images/red-stage-tambura.jpg", alt: "Young students on stage with tamburas" },
-  { src: "/images/om-stage-singer.jpg", alt: "Vocal concert on a devotional stage" },
-  { src: "/images/veena-ensemble.jpg", alt: "Veena ensemble performance" },
+  { src: "/images/real/temple-hall-wide.jpg", alt: "Devotional program in a temple hall", big: true },
+  { src: "/images/real/child-singing-mic.jpg", alt: "A young student singing at the mic" },
+  { src: "/images/real/kids-stage-tabla.jpg", alt: "Students on stage with tabla" },
+  { src: "/images/real/guru-harmonium.jpg", alt: "The guru at the harmonium" },
+  { src: "/images/real/stage-ensemble-keyboard.jpg", alt: "Concert with ensemble" },
 ];
 
 export default function HomePage() {
   return (
     <>
-      {/* Hero — one photo, one message, two buttons */}
-      <section className="relative min-h-[560px] lg:min-h-[640px] flex items-end overflow-hidden">
-        <Image src="/images/classroom-hero.jpg" alt="Guru teaching a group of children Carnatic vocals in the Amrutha Raagalaya classroom" fill priority sizes="100vw" className="object-cover object-[75%_center]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#2A0A0D] via-[#2A0A0D]/60 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#2A0A0D]/45 to-transparent" />
-        <div className="relative w-full px-5 sm:pl-[22%] lg:pl-[21%] xl:pl-[19%] pb-14 pt-64 lg:pb-16 lg:pt-80 text-[#FFF8EC]">
-          <p className="eyebrow !text-gold-soft">Carnatic music academy · Vijayawada</p>
-          <h1 className="mt-3 max-w-[22ch] text-4xl sm:text-5xl lg:text-[3.4rem] !text-[#FFF8EC]">Where voices are carved by the sacred art of Carnatic sangeetham</h1>
-          <p className="mt-4 max-w-[52ch] text-lg text-[#FFF8EC]/85">Classes for ages 4–15, and devotional music for temples, weddings and cultural occasions.</p>
+      {/* Hero — split: caption on cream, photo untouched */}
+      <section className="grid lg:grid-cols-[42%_58%] lg:min-h-[600px]">
+        <div className="order-2 lg:order-1 bg-cream flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-12 lg:py-16">
+          <p className="eyebrow">Carnatic music academy · Vijayawada</p>
+          <h1 className="mt-3 max-w-[13ch] text-4xl sm:text-5xl lg:text-[3.3rem]">Where voices are carved by the sacred art of Carnatic sangeetham</h1>
+          <p className="mt-4 max-w-[46ch] text-lg text-ink-2">Classes for ages 4–15, and devotional music for temples, weddings and cultural occasions.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={waLink(messages.classes)} external variant="onMaroon"><WhatsAppIcon /> Enquire About Classes</Button>
-            <Button href="/devotional-programs" variant="onMaroonOutline">Book a Program</Button>
+            <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Classes</Button>
+            <Button href="/devotional-programs" variant="outline">Book a Program</Button>
           </div>
-          <p className="mt-5 text-[0.85rem] text-[#FFF8EC]/75">Trial class available · No prior music knowledge needed</p>
+          <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.85rem] text-ink-2">
+            {["Trial class available", "No prior music knowledge needed"].map((t) => (
+              <li key={t} className="before:content-['◆'] before:text-gold before:text-[0.55rem] before:mr-2 before:align-middle">{t}</li>
+            ))}
+          </ul>
+        </div>
+        <div className="order-1 lg:order-2 relative min-h-[300px] sm:min-h-[400px] lg:min-h-0 overflow-hidden">
+          <Image src="/images/real/guru-harmonium.jpg" alt={`${site.teacher} singing at the harmonium during a devotional program`} fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover object-[45%_30%]" />
+          <div className="hidden lg:block absolute left-6 bottom-6 bg-offwhite border border-line rounded-[14px] px-4 py-3 shadow-soft max-w-[240px]">
+            <b className="block font-serif font-semibold text-[1.25rem] text-maroon leading-tight">Nurturing Tradition.<br />Inspiring Harmony.</b>
+            <span className="text-[0.75rem] text-ink-2">Students perform at temples and cultural festivals</span>
+          </div>
         </div>
       </section>
 
@@ -57,7 +65,7 @@ export default function HomePage() {
           <SectionHeading eyebrow="What we do" title="Two ways to be part of the tradition" />
           <div className="mt-10 grid gap-7 md:grid-cols-2">
             <article className="lift bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
-              <Photo src="/images/girl-singing.jpg" alt="A musician in a traditional saree playing the veena" className="aspect-[4/3]" />
+              <Photo src="/images/girl-singing.jpg" alt="A young student in a silk pattu dress singing at the microphone on stage" className="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="p-7 flex flex-col gap-3 flex-1">
                 <h3 className="text-2xl">Carnatic Classes for Children</h3>
                 <p className="text-ink-2">Ages 4 to 15. Step by step, from the first swara to the first stage — in a warm, disciplined classroom.</p>
@@ -68,7 +76,7 @@ export default function HomePage() {
               </div>
             </article>
             <article className="lift bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
-              <Photo src="/images/temple-pillars-concert.jpg" alt="Devotional concert among lamp-lit temple pillars" className="aspect-[4/3]" />
+              <Photo src="/images/real/temple-hall-performance.jpg" alt="Devotional program in a temple hall" className="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="p-7 flex flex-col gap-3 flex-1">
                 <h3 className="text-2xl">Devotional &amp; Traditional Programs</h3>
                 <p className="text-ink-2">Temple festivals, weddings, family functions and cultural events — rehearsed, respectful, rooted in tradition.</p>
@@ -85,7 +93,7 @@ export default function HomePage() {
       {/* Why parents choose us */}
       <section className="bg-cream py-16 lg:py-22">
         <Container className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
-          <Photo src="/images/carved-veena.jpg" alt="A carved Saraswati veena in warm light" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" />
+          <Photo src="/images/real/young-students-dresses.jpg" alt="Young students of the academy in traditional dress" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" />
           <div>
             <SectionHeading center={false} eyebrow="Why parents choose us" title="A place parents trust, and children look forward to" />
             <ul className="mt-7 grid gap-5 sm:grid-cols-2">

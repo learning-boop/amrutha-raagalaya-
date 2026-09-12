@@ -20,14 +20,14 @@ export const journey = [
 ];
 
 export const programs = [
-  { slug: "temple", icon: "temple", image: "/images/temple-pillars-concert.jpg", title: "Temple Programs", text: "Bhajans, kritis and Annamayya and Tyagaraja compositions for festivals and utsavams.", detail: "Devotional concerts for temple festivals, Navaratri, Sankranti and utsavams — chosen for the deity and occasion, rehearsed and on time." },
-  { slug: "wedding", icon: "garland", image: "/images/veena-player-saree.jpg", title: "Wedding Programs", text: "Traditional mangala music and devotional singing that honours the ceremony.", detail: "Traditional mangala music for the muhurtham and gentle classical sets for the reception — music that lets the ceremony lead." },
-  { slug: "functions", icon: "lamp", image: "/images/om-stage-singer.jpg", title: "Traditional Functions", text: "Gruhapravesham, festivals and family occasions with authentic classical music.", detail: "Gruhapravesham, vratams, annaprasana, shashtipoorthi and festival gatherings — short devotional programs sized to the occasion." },
-  { slug: "cultural", icon: "note", image: "/images/concert-hall.jpg", title: "Cultural Events", text: "Student ensembles and devotional concerts for community and cultural gatherings.", detail: "Student ensembles and thematic concerts for schools, associations and cultural gatherings." },
+  { slug: "temple", icon: "temple", image: "/images/real/temple-hall-performance.jpg", title: "Temple Programs", text: "Bhajans, kritis and Annamayya and Tyagaraja compositions for festivals and utsavams.", detail: "Devotional concerts for temple festivals, Navaratri, Sankranti and utsavams — chosen for the deity and occasion, rehearsed and on time." },
+  { slug: "wedding", icon: "garland", image: "/images/real/temple-decorated-mandapam.jpg", title: "Wedding Programs", text: "Traditional mangala music and devotional singing that honours the ceremony.", detail: "Traditional mangala music for the muhurtham and gentle classical sets for the reception — music that lets the ceremony lead." },
+  { slug: "functions", icon: "lamp", image: "/images/real/felicitation-event.jpg", title: "Traditional Functions", text: "Gruhapravesham, festivals and family occasions with authentic classical music.", detail: "Gruhapravesham, vratams, annaprasana, shashtipoorthi and festival gatherings — short devotional programs sized to the occasion." },
+  { slug: "cultural", icon: "note", image: "/images/real/cultural-event-stage.jpg", title: "Cultural Events", text: "Student ensembles and devotional concerts for community and cultural gatherings.", detail: "Student ensembles and thematic concerts for schools, associations and cultural gatherings." },
 ] as const;
 
 export const faqs = [
-  { q: "Is my child too young or too old to start?", a: "Classes are designed for children aged 7 to 15. Younger children start with simple swaras and rhythm; older beginners progress faster through the foundation stages." },
+  { q: "Is my child too young or too old to start?", a: "Classes are designed for children aged 4 to 15. Younger children start with simple swaras and rhythm; older beginners progress faster through the foundation stages." },
   { q: "Does my child need any prior music knowledge?", a: "No. Every student begins with the foundation stage, whatever their background." },
   { q: "What are the class timings and fees?", a: "We run small-group batches on weekday evenings and weekends. Send us a WhatsApp message and we will share the current timetable and fees." },
   { q: "Can we try a class first?", a: "Yes. A trial class lets your child meet the teacher and experience the classroom before you decide." },
@@ -58,18 +58,27 @@ export const galleryCategories: { key: GalleryCategory; label: string }[] = [
 
 // Replace `src` with real photos placed in /public/images (e.g. "/images/class-01.jpg").
 export const gallery: { category: GalleryCategory; caption: string; src?: string }[] = [
-  { category: "classes", caption: "The veena, ready for class", src: "/images/veena-temple.jpg" },
-  { category: "classes", caption: "Learning on the veena", src: "/images/veena-hands.jpg" },
-  { category: "classes", caption: "Instruments of Carnatic music", src: "/images/instruments-still.jpg" },
-  { category: "students", caption: "Young students on stage", src: "/images/red-stage-tambura.jpg" },
-  { category: "students", caption: "Veena practice in traditional attire", src: "/images/veena-player-saree.jpg" },
-  { category: "performances", caption: "Concert with mridangam and violin", src: "/images/concert-temple-stage.jpg" },
-  { category: "performances", caption: "Ensemble on stage", src: "/images/ensemble-stage.jpg" },
-  { category: "performances", caption: "Vocal concert", src: "/images/concert-hall.jpg" },
-  { category: "temples", caption: "Devotional concert among temple pillars", src: "/images/temple-pillars-concert.jpg" },
-  { category: "temples", caption: "Devotional stage performance", src: "/images/om-stage-singer.jpg" },
-  { category: "weddings", caption: "Mangala music at a wedding", src: "/images/wedding.svg" },
-  { category: "weddings", caption: "Veena ensemble", src: "/images/veena-ensemble.jpg" },
-  { category: "events", caption: "Cultural function", src: "/images/carved-veena.jpg" },
-  { category: "events", caption: "Traditional function", src: "/images/function.svg" },
+  { category: "classes", caption: "Children learning in class", src: "/images/real/children-class-carpet.jpg" },
+  { category: "classes", caption: "Guru at the harmonium", src: "/images/real/guru-harmonium.jpg" },
+  { category: "classes", caption: "Ensemble practice with the guru", src: "/images/real/guru-harmonium-ensemble.jpg" },
+  { category: "students", caption: "A young student singing", src: "/images/real/child-singing-mic.jpg" },
+  { category: "students", caption: "Our young students", src: "/images/real/young-students-dresses.jpg" },
+  { category: "students", caption: "Students on stage with tabla", src: "/images/real/kids-stage-tabla.jpg" },
+  { category: "students", caption: "Students performing", src: "/images/real/kids-stage-tabla-2.jpg" },
+  { category: "performances", caption: "Concert with ensemble", src: "/images/real/stage-ensemble-keyboard.jpg" },
+  { category: "performances", caption: "Vocal concert", src: "/images/real/concert-vocalist-mic.jpg" },
+  { category: "performances", caption: "Stage performance", src: "/images/real/stage-band-vocals.jpg" },
+  { category: "performances", caption: "Solo vocal", src: "/images/real/stage-solo-vocal.jpg" },
+  { category: "performances", caption: "Vocal duet", src: "/images/real/stage-vocal-duet.jpg" },
+  { category: "performances", caption: "Concert stage", src: "/images/real/stage-ensemble-wide.jpg" },
+  { category: "temples", caption: "Devotional program in the temple hall", src: "/images/real/temple-hall-performance.jpg" },
+  { category: "temples", caption: "Temple hall gathering", src: "/images/real/temple-hall-wide.jpg" },
+  { category: "temples", caption: "Devotional singing", src: "/images/real/group-devotional-hall.jpg" },
+  { category: "weddings", caption: "Decorated mandapam", src: "/images/real/temple-decorated-mandapam.jpg" },
+  { category: "weddings", caption: "Singing at a celebration", src: "/images/real/stage-trio-singing.jpg" },
+  { category: "events", caption: "Cultural event", src: "/images/real/cultural-event-stage.jpg" },
+  { category: "events", caption: "Felicitation", src: "/images/real/felicitation-event.jpg" },
+  { category: "events", caption: "Event organisers", src: "/images/real/event-organisers.jpg" },
+  { category: "events", caption: "With guests", src: "/images/real/event-guests.jpg" },
+  { category: "events", caption: "Concert with banner", src: "/images/real/concert-vocal-banner.jpg" },
 ];

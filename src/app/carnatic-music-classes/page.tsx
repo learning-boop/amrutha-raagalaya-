@@ -40,7 +40,7 @@ export default function ClassesPage() {
               <Button href={waLink(messages.trial)} external variant="ghost"><WhatsAppIcon /> Book a Trial Class</Button>
             </div>
           </div>
-          <Photo src="/images/veena-player-saree.jpg" alt="A musician playing the veena in traditional attire" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" />
+          <Photo src="/images/real/children-class-carpet.jpg" alt="Children learning Carnatic music in class" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" />
         </Container>
       </section>
 
