@@ -52,7 +52,11 @@ export default function Footer() {
       </div>
       <div className="mx-auto max-w-[1120px] px-5 mt-10 pt-6 border-t border-line text-[0.8rem] flex flex-wrap gap-2 justify-between">
         <span>© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
-        <span>Website by Creators Touch</span>
+        <span className="flex gap-4">
+          <span>Website by Creators Touch</span>
+          {/* Staff sign-in. rel=nofollow because /admin is disallowed in robots.txt. */}
+          <Link href="/admin" rel="nofollow" className="text-ink-2/70 hover:text-maroon">Admin</Link>
+        </span>
       </div>
     </footer>
   );
