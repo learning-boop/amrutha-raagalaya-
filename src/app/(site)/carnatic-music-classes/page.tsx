@@ -6,7 +6,7 @@ import Button from "@/components/Button";
 import Journey from "@/components/Journey";
 import Faq from "@/components/Faq";
 import CtaBand from "@/components/CtaBand";
-import { Icon, WhatsAppIcon } from "@/components/Icon";
+import { Icon } from "@/components/Icon";
 import { faqs } from "@/lib/content";
 import { waLink, messages } from "@/lib/site";
 
@@ -37,7 +37,7 @@ export default function ClassesPage() {
             <SectionHeading as="h1" center={false} eyebrow="Carnatic music classes" title="Carnatic music for children, taught the traditional way" lead="Structured, patient, child-friendly Carnatic training for ages 4 to 15 — from the first swara to the first temple stage." />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href={waLink(messages.classes)} external>Enquire About Classes</Button>
-              <Button href={waLink(messages.trial)} external variant="ghost"><WhatsAppIcon /> Book a Trial Class</Button>
+              <Button href="/book-trial" variant="ghost">Book a Trial Class</Button>
             </div>
           </div>
           <Photo src="/images/real/children-class-carpet.jpg" alt="Children learning Carnatic music in class" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" />
@@ -103,7 +103,7 @@ export default function ClassesPage() {
         </Container>
       </section>
 
-      <CtaBand title="Begin your child’s musical journey" primary="Enquire About Classes" secondary="Book a Trial Class" secondaryMsg={messages.trial} />
+      <CtaBand title="Begin your child’s musical journey" primary="Enquire About Classes" secondary="Book a Trial Class" secondaryHref="/book-trial" />
     </>
   );
 }

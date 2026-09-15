@@ -5,12 +5,13 @@ import { db, hasDatabase } from "@/lib/db";
 async function counts() {
   if (!hasDatabase) return null;
   try {
-    const [photos, posts, drafts] = await Promise.all([
+    const [photos, posts, drafts, trialRequests] = await Promise.all([
       db.galleryImage.count(),
       db.blogPost.count({ where: { published: true } }),
       db.blogPost.count({ where: { published: false } }),
+      db.trialBooking.count({ where: { status: "pending", slot: { startsAt: { gt: new Date() } } } }),
     ]);
-    return { photos, posts, drafts };
+    return { photos, posts, drafts, trialRequests };
   } catch {
     return null;
   }
@@ -23,6 +24,7 @@ export default async function AdminHome() {
   const cards = [
     { href: "/admin/gallery", title: "Gallery", body: "Upload photos, write captions and set categories.", count: stats && `${stats.photos} photos` },
     { href: "/admin/blog", title: "Blog", body: "Write posts, add a cover image and publish.", count: stats && `${stats.posts} published · ${stats.drafts} drafts` },
+    { href: "/admin/trials", title: "Trial classes", body: "Add free times, confirm parents' bookings and send WhatsApp confirmations.", count: stats && (stats.trialRequests > 0 ? `${stats.trialRequests} waiting for your reply` : "No new requests") },
   ];
 
   return (
@@ -37,7 +39,7 @@ export default async function AdminHome() {
         </p>
       )}
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map((c) => (
           <Link
             key={c.href}

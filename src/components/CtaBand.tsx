@@ -2,7 +2,7 @@ import { waLink, telLink, messages } from "@/lib/site";
 import Button from "./Button";
 import { Icon, Kolam, WhatsAppIcon } from "./Icon";
 
-export default function CtaBand({ title = "Begin your child’s musical journey", lead = "Send us a message about classes or a devotional program. We reply on WhatsApp, usually the same day.", primary = "Enquire About Classes", primaryMsg = messages.classes, secondary = "Book a Devotional Program", secondaryMsg = messages.program }: { title?: string; lead?: string; primary?: string; primaryMsg?: string; secondary?: string; secondaryMsg?: string }) {
+export default function CtaBand({ title = "Begin your child’s musical journey", lead = "Send us a message about classes or a devotional program. We reply on WhatsApp, usually the same day.", primary = "Enquire About Classes", primaryMsg = messages.classes, secondary = "Book a Devotional Program", secondaryMsg = messages.program, secondaryHref }: { title?: string; lead?: string; primary?: string; primaryMsg?: string; secondary?: string; secondaryMsg?: string; /** On-site page instead of a WhatsApp message. */ secondaryHref?: string }) {
   return (
     <section className="relative overflow-hidden bg-maroon text-[#FFF8EC] py-20 text-center">
       <Kolam className="absolute -top-52 -left-52 w-[520px] h-[520px] opacity-[0.09] text-white pointer-events-none" />
@@ -13,7 +13,11 @@ export default function CtaBand({ title = "Begin your child’s musical journey"
         <p className="mt-4 mx-auto max-w-[62ch] text-lg text-[#FFF8EC]/80">{lead}</p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Button href={waLink(primaryMsg)} external variant="onMaroon"><WhatsAppIcon /> {primary}</Button>
-          <Button href={waLink(secondaryMsg)} external variant="onMaroonOutline">{secondary}</Button>
+          {secondaryHref ? (
+            <Button href={secondaryHref} variant="onMaroonOutline">{secondary}</Button>
+          ) : (
+            <Button href={waLink(secondaryMsg)} external variant="onMaroonOutline">{secondary}</Button>
+          )}
           <Button href={telLink} external variant="onMaroonOutline"><Icon name="phone" className="w-[18px] h-[18px]" /> Call the Academy</Button>
         </div>
       </div>

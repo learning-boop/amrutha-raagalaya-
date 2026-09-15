@@ -52,3 +52,44 @@ model BlogPost {
 
   @@index([published, publishedAt])
 }
+
+/// A time the teacher is free for a trial class, published by the admin.
+model TrialSlot {
+  id              String         @id @default(cuid())
+  /// Stored in UTC; always entered and displayed as India time (IST).
+  startsAt        DateTime
+  durationMinutes Int            @default(30)
+  /// "online" (Zoom) or "in-person" (at the academy).
+  mode            String
+  /// Zoom link sent to the parent on confirmation. Online slots only.
+  meetingLink     String?
+  /// How many children can take this slot. Usually 1.
+  capacity        Int            @default(1)
+  createdAt       DateTime       @default(now())
+  bookings        TrialBooking[]
+
+  @@index([startsAt])
+}
+
+/// A parent's request for a trial slot.
+model TrialBooking {
+  id         String    @id @default(cuid())
+  slotId     String
+  // Restrict: a slot holding bookings cannot be deleted, so a family's
+  // request can never silently disappear.
+  slot       TrialSlot @relation(fields: [slotId], references: [id], onDelete: Restrict)
+  parentName String
+  /// WhatsApp number as digits with country code, e.g. 919876543210.
+  phone      String
+  childName  String
+  childAge   Int
+  notes      String?
+  /// pending → confirmed | declined. Pending and confirmed both hold the seat.
+  status     String    @default("pending")
+  createdAt  DateTime  @default(now())
+  decidedAt  DateTime?
+
+  @@index([slotId, status])
+  @@index([status, createdAt])
+  @@index([phone, status])
+}
