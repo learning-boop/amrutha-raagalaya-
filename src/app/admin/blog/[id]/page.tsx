@@ -3,6 +3,7 @@ import Link from "next/link";
 import { requireAdmin } from "@/lib/dal";
 import { db } from "@/lib/db";
 import PostEditor from "./PostEditor";
+import { isPlaceholderSlug } from "@/lib/blog";
 import ConfirmSubmit from "@/components/admin/ConfirmSubmit";
 import { deletePost } from "../actions";
 
@@ -21,7 +22,9 @@ export default async function EditPostPage(props: PageProps<"/admin/blog/[id]">)
         post={{
           id: post.id,
           title: post.title,
-          slug: post.slug,
+          // Show the box empty for a temporary address, so "leave blank to build
+          // it from the title" is true.
+          slug: isPlaceholderSlug(post.slug) ? "" : post.slug,
           excerpt: post.excerpt ?? "",
           content: post.content,
           coverUrl: post.coverUrl,

@@ -35,6 +35,11 @@ export const getPostBySlug = cache(async (slug: string) => {
   }
 });
 
+/** The temporary address a new draft gets before it has a real title. */
+export function isPlaceholderSlug(slug: string) {
+  return /^untitled-\d{4}-\d{2}-\d{2}(-\d+)?$/.test(slug);
+}
+
 /** Turns a title into a URL-safe slug. */
 export function slugify(input: string) {
   return input

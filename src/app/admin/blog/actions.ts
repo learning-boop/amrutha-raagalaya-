@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { requireAdmin } from "@/lib/dal";
 import { destroyImage } from "@/lib/cloudinary";
-import { slugify } from "@/lib/blog";
+import { isPlaceholderSlug, slugify } from "@/lib/blog";
 import { sanitizePostHtml, excerptFromHtml } from "@/lib/sanitize";
 
 export type PostState = { error?: string; ok?: string };
@@ -40,7 +40,11 @@ export async function savePost(_prev: PostState, formData: FormData): Promise<Po
     const existing = await db.blogPost.findUnique({ where: { id } });
     if (!existing) return { error: "That post no longer exists." };
 
-    const slugInput = String(formData.get("slug") ?? "").trim();
+    // A draft's temporary "untitled-…" address is replaced by one built from
+    // the title, unless the author typed their own. Once a real address
+    // exists it stays put, so published links keep working.
+    let slugInput = String(formData.get("slug") ?? "").trim();
+    if (isPlaceholderSlug(slugInput)) slugInput = "";
     const desired = slugify(slugInput || title) || existing.slug;
     const slug = desired === existing.slug ? existing.slug : await uniqueSlug(desired, id);
 

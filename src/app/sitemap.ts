@@ -8,7 +8,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     { url: site.url, lastModified: now, priority: 1 },
-    ...nav.map((n) => ({ url: `${site.url}${n.href}`, lastModified: now, priority: 0.8 })),
+    // The homepage is listed above; skip the nav's "/" so it is not listed twice.
+    ...nav.filter((n) => n.href !== "/").map((n) => ({ url: `${site.url}${n.href}`, lastModified: now, priority: 0.8 })),
     { url: `${site.url}/book-trial`, lastModified: now, priority: 0.8 },
     ...posts.map((p) => ({
       url: `${site.url}/blog/${p.slug}`,

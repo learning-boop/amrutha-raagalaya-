@@ -4,7 +4,9 @@ export const site = {
   tagline: "Nurturing Tradition. Inspiring Harmony.",
   description:
     "Authentic Carnatic music classes for children aged 7–15 in Vijayawada, and devotional music programs for temples, weddings and cultural occasions.",
-  url: "https://amrutharaagalaya.com", // TODO: replace with the live domain
+  // No trailing slash: paths such as `/blog/...` are appended to this.
+  // Update here if a custom domain is connected in Vercel later.
+  url: "https://amrutha-raagalaya.vercel.app",
   // TODO: replace with the academy's real numbers (country code, no + or spaces for WhatsApp)
   whatsapp: "919999999999",
   phone: "+91 99999 99999",
