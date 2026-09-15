@@ -1,14 +1,19 @@
 "use client";
 
 import { useState } from "react";
+import { resizeImage } from "./resize-image";
 
 export type UploadedImage = { url: string; publicId: string; width: number; height: number };
 
-const MAX_BYTES = 10 * 1024 * 1024;
+// Originals may be large because they are shrunk before upload; what is
+// actually sent must fit Cloudinary's free-plan limit of 10 MB per image.
+const MAX_INPUT_BYTES = 50 * 1024 * 1024;
+const MAX_UPLOAD_BYTES = 10 * 1024 * 1024;
 
 /**
- * Uploads straight from the browser to Cloudinary using a signature minted by
- * our server, so large photos never pass through a serverless function.
+ * Resizes a photo in the browser, then uploads it straight to Cloudinary using
+ * a signature minted by our server, so photos never pass through a serverless
+ * function.
  */
 export default function ImageUploader({
   onUploaded,
@@ -19,7 +24,8 @@ export default function ImageUploader({
   folder?: "gallery" | "blog";
   label?: string;
 }) {
-  const [busy, setBusy] = useState(false);
+  const [status, setStatus] = useState<"idle" | "preparing" | "uploading">("idle");
+  const busy = status !== "idle";
   const [error, setError] = useState<string | null>(null);
 
   async function handleFile(file: File) {
@@ -29,13 +35,19 @@ export default function ImageUploader({
       setError("That file is not an image.");
       return;
     }
-    if (file.size > MAX_BYTES) {
-      setError("Please choose an image under 10 MB.");
+    if (file.size > MAX_INPUT_BYTES) {
+      setError("Please choose an image under 50 MB.");
       return;
     }
 
-    setBusy(true);
+    setStatus("preparing");
     try {
+      const { blob } = await resizeImage(file);
+      if (blob.size > MAX_UPLOAD_BYTES) {
+        throw new Error("This image is still over 10 MB and could not be shrunk. Try saving it as a JPEG first.");
+      }
+
+      setStatus("uploading");
       const signRes = await fetch("/api/admin/upload-signature", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -45,7 +57,7 @@ export default function ImageUploader({
       const sign = await signRes.json();
 
       const body = new FormData();
-      body.append("file", file);
+      body.append("file", blob, file.name);
       body.append("api_key", sign.apiKey);
       body.append("timestamp", String(sign.timestamp));
       body.append("folder", sign.folder);
@@ -67,7 +79,7 @@ export default function ImageUploader({
     } catch (err) {
       setError(err instanceof Error ? err.message : "Upload failed.");
     } finally {
-      setBusy(false);
+      setStatus("idle");
     }
   }
 
@@ -86,7 +98,7 @@ export default function ImageUploader({
             if (file) void handleFile(file);
           }}
         />
-        {busy ? "Uploading…" : label}
+        {status === "preparing" ? "Preparing photo…" : status === "uploading" ? "Uploading…" : label}
       </label>
       {error && <p role="alert" className="mt-2 text-[0.85rem] text-maroon">{error}</p>}
     </div>
