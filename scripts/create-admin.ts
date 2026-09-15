@@ -4,15 +4,14 @@ import { stdin, stdout } from "node:process";
 import bcrypt from "bcryptjs";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { pgConnectionString } from "../src/lib/pg-url";
 
 /**
  * Creates (or updates the password of) an admin who can sign in at /admin.
  * Run with: npm run admin:create
  */
 async function main() {
-  const url = process.env.DIRECT_URL ?? process.env.DATABASE_URL;
-  if (!url) throw new Error("DATABASE_URL is not set. Copy .env.example to .env first.");
-
+  const url = pgConnectionString(process.env.DIRECT_URL ?? process.env.DATABASE_URL);
   const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) });
   const rl = createInterface({ input: stdin, output: stdout });
 

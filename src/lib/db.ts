@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { pgConnectionString } from "./pg-url";
 
 /** True when a database is configured. Callers check this before querying. */
 export const hasDatabase = Boolean(process.env.DATABASE_URL);
@@ -9,12 +10,9 @@ export const hasDatabase = Boolean(process.env.DATABASE_URL);
 const globalForPrisma = globalThis as unknown as { prisma?: PrismaClient };
 
 function createClient() {
-  if (!process.env.DATABASE_URL) {
-    throw new Error("DATABASE_URL is not set. See README-ADMIN.md for setup steps.");
-  }
   // Prisma 7 takes the connection through a driver adapter rather than from
   // schema.prisma. `pg` works with Neon, Supabase and self-hosted Postgres alike.
-  const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL });
+  const adapter = new PrismaPg({ connectionString: pgConnectionString(process.env.DATABASE_URL) });
   return new PrismaClient({ adapter });
 }
 

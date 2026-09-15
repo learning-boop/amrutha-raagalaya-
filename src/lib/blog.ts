@@ -1,4 +1,5 @@
 import "server-only";
+import { cache } from "react";
 import { db, hasDatabase } from "./db";
 
 export type PostSummary = {
@@ -23,7 +24,8 @@ export async function getPublishedPosts(): Promise<PostSummary[]> {
   }
 }
 
-export async function getPostBySlug(slug: string) {
+/** Memoised per request: the post page and its metadata both ask for the same post. */
+export const getPostBySlug = cache(async (slug: string) => {
   if (!hasDatabase) return null;
   try {
     return await db.blogPost.findFirst({ where: { slug, published: true } });
@@ -31,7 +33,7 @@ export async function getPostBySlug(slug: string) {
     console.error("Blog post query failed", error);
     return null;
   }
-}
+});
 
 /** Turns a title into a URL-safe slug. */
 export function slugify(input: string) {

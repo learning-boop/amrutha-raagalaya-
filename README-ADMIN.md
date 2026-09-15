@@ -15,6 +15,9 @@ gallery photos and blog posts.
 > stores only the Cloudinary URL. The photos already in `public/images/` keep
 > working exactly as before.
 
+> **There is no default username or password.** You create your own admin
+> account in step 6 — the email and password you choose there are your login.
+
 ---
 
 ## One-time setup
@@ -49,8 +52,12 @@ openssl rand -base64 32
 ### 4. Create the tables
 
 ```bash
-npm run db:migrate
+npm run db:deploy
 ```
+
+Look for **"All migrations have been successfully applied."** (`db:migrate` is
+for changing the table design later; for first-time setup `db:deploy` simply
+applies the tables that are already defined, without asking questions.)
 
 ### 5. Copy the existing photos into the database (optional)
 
@@ -68,8 +75,8 @@ first photo — the public gallery keeps showing those bundled images.
 npm run admin:create
 ```
 
-It asks for an email, a name and a password (minimum 10 characters), and stores
-only a bcrypt hash of the password.
+It asks for an email, a name and a password (minimum 10 characters) — **these
+are your login credentials**. Only a bcrypt hash of the password is stored.
 
 ### 7. Sign in
 
@@ -88,11 +95,9 @@ Open <http://localhost:3000/admin>.
    `DATABASE_URL`, `DIRECT_URL`, `SESSION_SECRET`,
    `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
 3. Deploy. `npm run build` runs `prisma generate` automatically.
-4. Apply migrations against the production database once:
 
-   ```bash
-   npm run db:deploy
-   ```
+The tables were already created in step 4, so there is nothing more to run —
+Vercel and your computer use the same Neon database.
 
 ---
 
@@ -104,6 +109,11 @@ Open <http://localhost:3000/admin>.
   is happening in the picture.
 - Each photo below can have its caption and category edited, or be deleted.
   Deleting also removes the file from Cloudinary.
+- Photos are **resized in your browser before uploading**: the longest side is
+  capped at 2000px, which is still sharp on large screens. A typical 4–5 MB
+  phone photo uploads as about 500 KB, so the free Cloudinary plan holds
+  roughly ten times as many photos. Resizing also removes hidden metadata,
+  including the GPS location phones record in every photo.
 
 **Blog** (`/admin/blog`)
 - **New post** creates a draft and opens the editor.
@@ -112,6 +122,25 @@ Open <http://localhost:3000/admin>.
   `/blog/<web-address>`.
 - Leave **Published** unticked to keep working on a draft — drafts are not
   visible on the website.
+
+**Trial classes** (`/admin/trials`)
+- **Add available times** — pick a date, start time, duration, and *Online (Zoom)*
+  or *In person*. Use *Repeat weekly* to add the same time for several weeks at
+  once. All times are India time (IST).
+- Parents see open times at **`/book-trial`** (linked from the *Book a Trial
+  Class* buttons and the footer) and send a request with their child's name,
+  age and WhatsApp number. Families abroad also see each time in their own time
+  zone.
+- New requests appear under **Needs your reply**, and the dashboard shows how
+  many are waiting. **Confirm** or **Decline**.
+- After confirming, press **Send confirmation on WhatsApp**. It opens WhatsApp
+  with a ready-written message including the date, time and — for online
+  classes — the Zoom link. Paste the Zoom link on the slot first so it is
+  included. Nothing is sent until you press send in WhatsApp.
+- A requested or booked time disappears for other parents, so a slot can never
+  be double-booked. **Cancel booking** frees it again.
+- Bookings close 1 hour before a slot starts. A time with a booking on it cannot
+  be removed until that booking is cancelled.
 
 ---
 
@@ -125,6 +154,8 @@ src/lib/dal.ts                   requireAdmin() — the authoritative check
 src/lib/db.ts                    Prisma client (connects on first use)
 src/lib/cloudinary.ts            signs browser uploads, deletes images
 src/lib/sanitize.ts              whitelists blog HTML before it is stored
+src/lib/trials.ts                trial slots: IST times, phone numbers, booking lock, WhatsApp messages
+src/components/admin/resize-image.ts  shrinks photos and strips metadata before upload
 prisma/schema.prisma             AdminUser, GalleryImage, BlogPost
 
 src/app/admin/                   the admin area (its own layout, no site chrome)

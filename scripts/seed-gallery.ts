@@ -1,6 +1,7 @@
 import "dotenv/config";
 import { PrismaClient } from "@prisma/client";
 import { PrismaPg } from "@prisma/adapter-pg";
+import { pgConnectionString } from "../src/lib/pg-url";
 import { gallery } from "../src/lib/content";
 
 /**
@@ -11,9 +12,7 @@ import { gallery } from "../src/lib/content";
  * Run with: npm run gallery:seed
  */
 async function main() {
-  const url = process.env.DIRECT_URL ?? process.env.DATABASE_URL;
-  if (!url) throw new Error("DATABASE_URL is not set. Copy .env.example to .env first.");
-
+  const url = pgConnectionString(process.env.DIRECT_URL ?? process.env.DATABASE_URL);
   const db = new PrismaClient({ adapter: new PrismaPg({ connectionString: url }) });
 
   try {
