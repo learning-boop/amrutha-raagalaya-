@@ -25,15 +25,15 @@ export default function HomePage() {
       {/* Hero — split: caption on cream, photo untouched */}
       <section className="grid lg:grid-cols-[42%_58%] lg:min-h-[600px]">
         <div className="order-2 lg:order-1 bg-cream flex flex-col justify-center px-6 py-12 sm:px-10 lg:px-12 lg:py-16">
-          <p className="eyebrow">Carnatic music academy · Vijayawada</p>
+          <p className="eyebrow">Carnatic music academy · Guntur</p>
           <h1 className="mt-3 max-w-[13ch] text-4xl sm:text-5xl lg:text-[3.3rem]">Where voices are carved by the sacred art of Carnatic sangeetham</h1>
-          <p className="mt-4 max-w-[46ch] text-lg text-ink-2">Classes for ages 4–15, and devotional music for temples, weddings and cultural occasions.</p>
+          <p className="mt-4 max-w-[46ch] text-lg text-ink-2">Classes for every age group — from little ones of 4 to grown-up beginners — and devotional music for temples, weddings and traditional functions.</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Classes</Button>
             <Button href="/devotional-programs" variant="outline">Book a Program</Button>
           </div>
           <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.85rem] text-ink-2">
-            {["Trial class available", "No prior music knowledge needed"].map((t) => (
+            {["Trial class available", "No prior music knowledge needed", "All ages welcome"].map((t) => (
               <li key={t} className="before:content-['◆'] before:text-gold before:text-[0.55rem] before:mr-2 before:align-middle">{t}</li>
             ))}
           </ul>
@@ -42,7 +42,7 @@ export default function HomePage() {
           <Image src="/images/real/guru-harmonium.jpg" alt={`${site.teacher} singing at the harmonium during a devotional program`} fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover object-[45%_30%]" />
           <div className="hidden lg:block absolute left-6 bottom-6 bg-offwhite border border-line rounded-[14px] px-4 py-3 shadow-soft max-w-[240px]">
             <b className="block font-serif font-semibold text-[1.25rem] text-maroon leading-tight">Nurturing Tradition.<br />Inspiring Harmony.</b>
-            <span className="text-[0.75rem] text-ink-2">Students perform at temples and cultural festivals</span>
+            <span className="text-[0.75rem] text-ink-2">Students perform at temples and devotional festivals</span>
           </div>
         </div>
       </section>
@@ -67,8 +67,8 @@ export default function HomePage() {
             <article className="lift bg-offwhite border border-line rounded-card overflow-hidden shadow-soft flex flex-col">
               <Photo src="/images/girl-singing.jpg" alt="A young student in a silk pattu dress singing at the microphone on stage" className="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="p-7 flex flex-col gap-3 flex-1">
-                <h3 className="text-2xl">Carnatic Classes for Children</h3>
-                <p className="text-ink-2">Ages 4 to 15. Step by step, from the first swara to the first stage — in a warm, disciplined classroom.</p>
+                <h3 className="text-2xl">Carnatic Classes for All Ages</h3>
+                <p className="text-ink-2">Children from 4 years, teenagers and adults. Step by step, from the first swara to the first stage — in a warm, disciplined classroom.</p>
                 <div className="mt-auto pt-2 flex flex-wrap items-center gap-4">
                   <Button href={waLink(messages.classes)} external>Enquire About Classes</Button>
                   <Link href="/carnatic-music-classes" className="font-semibold text-maroon hover:underline">Learn more →</Link>
@@ -79,7 +79,7 @@ export default function HomePage() {
               <Photo src="/images/real/temple-hall-performance.jpg" alt="Devotional program in a temple hall" className="aspect-[4/3]" sizes="(max-width: 768px) 100vw, 50vw" />
               <div className="p-7 flex flex-col gap-3 flex-1">
                 <h3 className="text-2xl">Devotional &amp; Traditional Programs</h3>
-                <p className="text-ink-2">Temple festivals, weddings, family functions and cultural events — rehearsed, respectful, rooted in tradition.</p>
+                <p className="text-ink-2">Temple festivals, weddings and traditional family functions — rehearsed, respectful, rooted in devotion.</p>
                 <div className="mt-auto pt-2 flex flex-wrap items-center gap-4">
                   <Button href={waLink(messages.program)} external variant="outline">Book a Program</Button>
                   <Link href="/devotional-programs" className="font-semibold text-maroon hover:underline">See programs →</Link>
@@ -95,7 +95,7 @@ export default function HomePage() {
         <Container className="grid gap-12 lg:grid-cols-[.9fr_1.1fr] lg:items-center">
           <Photo src="/images/real/young-students-dresses.jpg" alt="Young students of the academy in traditional dress" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" />
           <div>
-            <SectionHeading center={false} eyebrow="Why parents choose us" title="A place parents trust, and children look forward to" />
+            <SectionHeading center={false} eyebrow="Why students choose us" title="A place families trust, and students look forward to" />
             <ul className="mt-7 grid gap-5 sm:grid-cols-2">
               {whyUs.map((w) => (
                 <li key={w.title} className="flex gap-3.5">
@@ -115,7 +115,7 @@ export default function HomePage() {
       {/* Learning journey */}
       <section className="py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Learning journey" title="From the first swara to the stage" lead="Five clear stages. Every child moves at a pace that suits them." />
+          <SectionHeading eyebrow="Learning journey" title="From the first swara to the stage" lead="Five clear stages. Every student moves at a pace that suits them." />
           <Journey />
         </Container>
       </section>
@@ -136,7 +136,7 @@ export default function HomePage() {
       {/* Testimonials */}
       <section className="py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Testimonials" title="What parents say" />
+          <SectionHeading eyebrow="Testimonials" title="What families say" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {testimonials.slice(0, 3).map((t) => (<TestimonialCard key={t.who} quote={t.quote} who={t.who} />))}
           </div>

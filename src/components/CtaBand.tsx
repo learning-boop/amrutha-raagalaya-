@@ -2,7 +2,7 @@ import { waLink, telLink, messages } from "@/lib/site";
 import Button from "./Button";
 import { Icon, Kolam, WhatsAppIcon } from "./Icon";
 
-export default function CtaBand({ title = "Begin your child’s musical journey", lead = "Send us a message about classes or a devotional program. We reply on WhatsApp, usually the same day.", primary = "Enquire About Classes", primaryMsg = messages.classes, secondary = "Book a Devotional Program", secondaryMsg = messages.program, secondaryHref }: { title?: string; lead?: string; primary?: string; primaryMsg?: string; secondary?: string; secondaryMsg?: string; /** On-site page instead of a WhatsApp message. */ secondaryHref?: string }) {
+export default function CtaBand({ title = "Begin your musical journey", lead = "Send us a message about classes or a devotional program. We reply on WhatsApp, usually the same day.", primary = "Enquire About Classes", primaryMsg = messages.classes, secondary = "Book a Devotional Program", secondaryMsg = messages.program, secondaryHref }: { title?: string; lead?: string; primary?: string; primaryMsg?: string; secondary?: string; secondaryMsg?: string; /** On-site page instead of a WhatsApp message. */ secondaryHref?: string }) {
   return (
     <section className="relative overflow-hidden bg-maroon text-[#FFF8EC] py-20 text-center">
       <Kolam className="absolute -top-52 -left-52 w-[520px] h-[520px] opacity-[0.09] text-white pointer-events-none" />

@@ -26,7 +26,7 @@ const inter = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
-  title: { default: `${site.shortName} — Carnatic Music Academy, Vijayawada`, template: `%s | ${site.shortName}` },
+  title: { default: `${site.shortName} — Carnatic Music Academy, Guntur`, template: `%s | ${site.shortName}` },
   description: site.description,
   openGraph: { type: "website", siteName: site.name, title: site.name, description: site.description, locale: "en_IN", images: [{ url: "/images/logo.png", width: 1254, height: 1254 }] },
   robots: { index: true, follow: true },
@@ -40,7 +40,7 @@ const orgJsonLd = {
   url: site.url,
   telephone: site.phone,
   email: site.email,
-  address: { "@type": "PostalAddress", addressLocality: "Vijayawada", addressRegion: "Andhra Pradesh", addressCountry: "IN" },
+  address: { "@type": "PostalAddress", streetAddress: site.addressLine, addressLocality: site.city, addressRegion: site.region, addressCountry: "IN" },
   logo: `${site.url}/images/logo.png`,
   image: `${site.url}/images/logo.png`,
   sameAs: Object.values(site.social),

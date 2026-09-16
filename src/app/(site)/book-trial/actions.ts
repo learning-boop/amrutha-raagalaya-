@@ -42,9 +42,9 @@ export async function requestTrial(_prev: RequestState, formData: FormData): Pro
   const fields: Record<string, string> = {};
   if (!slotId) fields.slotId = "Please choose a time.";
   if (parentName.length < 2 || parentName.length > 80) fields.parentName = "Please enter your name.";
-  if (childName.length < 1 || childName.length > 80) fields.childName = "Please enter your child's name.";
+  if (childName.length < 1 || childName.length > 80) fields.childName = "Please enter the student's name.";
   if (!phone) fields.phone = "Please enter a WhatsApp number, e.g. 98765 43210 or +1 415 555 0100.";
-  if (!Number.isInteger(childAge) || childAge < 3 || childAge > 18) fields.childAge = "Please enter an age between 3 and 18.";
+  if (!Number.isInteger(childAge) || childAge < 3 || childAge > 99) fields.childAge = "Please enter the student's age in years.";
   if (Object.keys(fields).length > 0) {
     return { status: "error", message: "Please check the highlighted fields.", fields, values };
   }

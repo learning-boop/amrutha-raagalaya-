@@ -9,7 +9,7 @@ import BookingForm, { type SlotDay } from "./BookingForm";
 
 export const metadata: Metadata = {
   title: "Book a Trial Class",
-  description: "Choose a time for your child's free trial Carnatic music class — online on Zoom or in person in Vijayawada.",
+  description: "Choose a time for a free trial Carnatic music class — online on Zoom or in person in Guntur.",
 };
 
 /** Reads the clock here rather than while rendering, which must stay pure. */
@@ -50,14 +50,14 @@ export default async function BookTrialPage() {
           as="h1"
           eyebrow="Trial class"
           title="Book a trial class"
-          lead="Pick a time that suits you. Your child meets the teacher and experiences a real lesson — online on Zoom, or in person at the academy."
+          lead="Pick a time that suits you. The student meets the teacher and experiences a real lesson — online on Zoom, or in person at the academy."
         />
 
         <div className="mx-auto max-w-3xl mt-10">
           {days.length === 0 ? (
             <div className="rounded-2xl border border-line bg-cream/50 p-8 text-center">
               <h2 className="text-2xl">No open times right now</h2>
-              <p className="mt-3 text-ink-2">New trial slots are added regularly. Message us and we will find a time that suits your child.</p>
+              <p className="mt-3 text-ink-2">New trial slots are added regularly. Message us and we will find a time that suits you.</p>
               <div className="mt-6">
                 <Button href={waLink(messages.trial)} external><WhatsAppIcon /> Ask on WhatsApp</Button>
               </div>

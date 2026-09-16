@@ -8,7 +8,7 @@ import { Icon } from "@/components/Icon";
 import { programs } from "@/lib/content";
 import { waLink, messages } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Devotional & Traditional Music Programs", description: "Devotional and traditional Carnatic music programs for temples, weddings, traditional functions and cultural events in Andhra Pradesh." };
+export const metadata: Metadata = { title: "Devotional & Traditional Music Programs", description: "Devotional and traditional Carnatic music programs for temples, weddings and traditional functions in Guntur and across Andhra Pradesh." };
 
 const how = ["Tell us the occasion, date, venue and approximate duration.", "We suggest a program format and repertoire suited to the occasion.", "We confirm the ensemble, timings and inclusions in writing.", "We arrive rehearsed and on time, and let the occasion lead."];
 
@@ -18,7 +18,7 @@ export default function ProgramsPage() {
       <section className="pt-12 pb-16 lg:pt-16">
         <Container className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div>
-            <SectionHeading as="h1" center={false} eyebrow="Devotional & traditional programs" title="Devotional music for life’s sacred occasions" lead="Respectful, rehearsed Carnatic and devotional music for temples, weddings, traditional functions and cultural events." />
+            <SectionHeading as="h1" center={false} eyebrow="Devotional & traditional programs" title="Devotional music for life’s sacred occasions" lead="Respectful, rehearsed Carnatic and devotional music for temples, weddings and traditional functions. We perform devotional programs only." />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href={waLink(messages.program)} external>Book a Devotional Program</Button>
               <Button href="#programs" variant="outline">See program types</Button>
@@ -37,7 +37,7 @@ export default function ProgramsPage() {
                 <Icon name={p.icon} className="w-9 h-9 text-gold" />
                 <h2 className="text-3xl">{p.title}</h2>
                 <p className="text-ink-2">{p.detail}</p>
-                <div className="mt-2"><Button href={waLink(`Namaste! I would like to enquire about a ${p.title.toLowerCase()} program from Amrutha Raagalaya.`)} external variant="outline">Enquire for {p.title.replace(" Programs", "").replace(" Events", " events")}</Button></div>
+                <div className="mt-2"><Button href={waLink(`Namaste! I would like to enquire about a ${p.title.toLowerCase()} program from Amrutha Raagalaya.`)} external variant="outline">Enquire for {p.title.replace(" Programs", "")}</Button></div>
               </div>
             </article>
           ))}

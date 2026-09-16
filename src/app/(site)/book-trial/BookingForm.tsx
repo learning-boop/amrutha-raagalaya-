@@ -109,11 +109,11 @@ export default function BookingForm({ days, renderedAt }: { days: SlotDay[]; ren
           <Field id="phone" label="WhatsApp number" error={fieldErrors.phone} hint="We confirm the booking here.">
             <input id="phone" name="phone" defaultValue={values?.phone} type="tel" inputMode="tel" autoComplete="tel" required placeholder="98765 43210" className={`${field} ${fieldErrors.phone ? "border-maroon" : "border-line"}`} />
           </Field>
-          <Field id="childName" label="Child's name" error={fieldErrors.childName}>
+          <Field id="childName" label="Student's name" error={fieldErrors.childName}>
             <input id="childName" name="childName" defaultValue={values?.childName} required className={`${field} ${fieldErrors.childName ? "border-maroon" : "border-line"}`} />
           </Field>
-          <Field id="childAge" label="Child's age" error={fieldErrors.childAge}>
-            <input id="childAge" name="childAge" defaultValue={values?.childAge} type="number" inputMode="numeric" min={3} max={18} required className={`${field} ${fieldErrors.childAge ? "border-maroon" : "border-line"}`} />
+          <Field id="childAge" label="Student's age" error={fieldErrors.childAge}>
+            <input id="childAge" name="childAge" defaultValue={values?.childAge} type="number" inputMode="numeric" min={3} max={99} required className={`${field} ${fieldErrors.childAge ? "border-maroon" : "border-line"}`} />
           </Field>
         </div>
 

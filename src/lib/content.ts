@@ -8,7 +8,7 @@ export const whyUs = [
   { icon: "veena", title: "Authentic Carnatic training", text: "Taught in the traditional method, not a shortcut version." },
   { icon: "hands", title: "Patient, devoted teaching", text: "Kind with children, firm about practice." },
   { icon: "shield", title: "Safe, disciplined environment", text: "Small groups and a calm, respectful classroom." },
-  { icon: "temple", title: "Real stage opportunities", text: "Temple festivals, Annual Day and cultural events." },
+  { icon: "temple", title: "Real stage opportunities", text: "Temple festivals, utsavams and our Annual Day." },
 ] as const;
 
 export const journey = [
@@ -23,17 +23,16 @@ export const programs = [
   { slug: "temple", icon: "temple", image: "/images/real/temple-hall-performance.jpg", title: "Temple Programs", text: "Bhajans, kritis and Annamayya and Tyagaraja compositions for festivals and utsavams.", detail: "Devotional concerts for temple festivals, Navaratri, Sankranti and utsavams — chosen for the deity and occasion, rehearsed and on time." },
   { slug: "wedding", icon: "garland", image: "/images/real/temple-decorated-mandapam.jpg", title: "Wedding Programs", text: "Traditional mangala music and devotional singing that honours the ceremony.", detail: "Traditional mangala music for the muhurtham and gentle classical sets for the reception — music that lets the ceremony lead." },
   { slug: "functions", icon: "lamp", image: "/images/real/felicitation-event.jpg", title: "Traditional Functions", text: "Gruhapravesham, festivals and family occasions with authentic classical music.", detail: "Gruhapravesham, vratams, annaprasana, shashtipoorthi and festival gatherings — short devotional programs sized to the occasion." },
-  { slug: "cultural", icon: "note", image: "/images/real/cultural-event-stage.jpg", title: "Cultural Events", text: "Student ensembles and devotional concerts for community and cultural gatherings.", detail: "Student ensembles and thematic concerts for schools, associations and cultural gatherings." },
 ] as const;
 
 export const faqs = [
-  { q: "Is my child too young or too old to start?", a: "Classes are designed for children aged 4 to 15. Younger children start with simple swaras and rhythm; older beginners progress faster through the foundation stages." },
-  { q: "Does my child need any prior music knowledge?", a: "No. Every student begins with the foundation stage, whatever their background." },
+  { q: "Is there an age limit to start?", a: "No. We teach every age group — children (we welcome them from about 4 years), teenagers and adults. Young children start with simple swaras and rhythm; older beginners progress faster through the foundation stages." },
+  { q: "Is any prior music knowledge needed?", a: "No. Every student begins with the foundation stage, whatever their age or background." },
   { q: "What are the class timings and fees?", a: "We run small-group batches on weekday evenings and weekends. Send us a WhatsApp message and we will share the current timetable and fees." },
-  { q: "Can we try a class first?", a: "Yes. A trial class lets your child meet the teacher and experience the classroom before you decide." },
-  { q: "Will my child get chances to perform?", a: "Yes. Students perform at temple festivals, our Annual Day and cultural events as they progress." },
+  { q: "Can we try a class first?", a: "Yes. A trial class lets the student meet the teacher and experience the classroom before you decide." },
+  { q: "Will students get chances to perform?", a: "Yes. Students perform at temple festivals, utsavams and our Annual Day as they progress." },
   { q: "What if my child loses interest?", a: "Children learn in small groups with friends their age, and every stage ends with a song they can sing at home. Most children settle in within a few weeks; we speak with parents regularly about progress." },
-  { q: "Do you offer online classes?", a: "Yes, for students outside Vijayawada we offer online sessions. Message us to check availability." },
+  { q: "Do you offer online classes?", a: "Yes, for students outside Guntur we offer online sessions. Message us to check availability." },
 ];
 
 export const testimonials = [
@@ -53,7 +52,7 @@ export const galleryCategories: { key: GalleryCategory; label: string }[] = [
   { key: "performances", label: "Performances" },
   { key: "temples", label: "Temples" },
   { key: "weddings", label: "Weddings" },
-  { key: "events", label: "Traditional events" },
+  { key: "events", label: "Devotional events" },
 ];
 
 // Replace `src` with real photos placed in /public/images (e.g. "/images/class-01.jpg").
@@ -76,7 +75,7 @@ export const gallery: { category: GalleryCategory; caption: string; src?: string
   { category: "temples", caption: "Devotional singing", src: "/images/real/group-devotional-hall.jpg" },
   { category: "weddings", caption: "Decorated mandapam", src: "/images/real/temple-decorated-mandapam.jpg" },
   { category: "weddings", caption: "Singing at a celebration", src: "/images/real/stage-trio-singing.jpg" },
-  { category: "events", caption: "Cultural event", src: "/images/real/cultural-event-stage.jpg" },
+  { category: "events", caption: "Devotional program on stage", src: "/images/real/cultural-event-stage.jpg" },
   { category: "events", caption: "Felicitation", src: "/images/real/felicitation-event.jpg" },
   { category: "events", caption: "Event organisers", src: "/images/real/event-organisers.jpg" },
   { category: "events", caption: "With guests", src: "/images/real/event-guests.jpg" },

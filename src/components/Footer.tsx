@@ -10,7 +10,7 @@ export default function Footer() {
         <div>
           <Image src="/images/logo.png" alt="Amrutha Raagalaya Music Academy" width="96" height="96" className="w-24 h-24 rounded-full border border-gold/60 mb-3" />
           <h4 className="text-xl mb-2">{site.name}</h4>
-          <p>Carnatic music lessons for children and devotional music programs for temples, weddings and cultural occasions.</p>
+          <p>Carnatic music lessons for every age group, and devotional music programs for temples, weddings and traditional functions.</p>
           <p className="font-serif italic text-lg text-ink mt-3">{site.tagline}</p>
         </div>
         <div>
@@ -20,9 +20,9 @@ export default function Footer() {
         <div>
           <h4 className="text-xl mb-2">Enquire</h4>
           <ul className="grid gap-1.5">
-            <li><a href={waLink(messages.classes)} className="hover:text-maroon">Enquire About Classes</a></li>
+            <li><a href={waLink(messages.classes)} target="_blank" rel="noopener noreferrer" className="hover:text-maroon">Enquire About Classes</a></li>
             <li><Link href="/book-trial" className="hover:text-maroon">Book a Trial Class</Link></li>
-            <li><a href={waLink(messages.program)} className="hover:text-maroon">Enquire About a Program</a></li>
+            <li><a href={waLink(messages.program)} target="_blank" rel="noopener noreferrer" className="hover:text-maroon">Enquire About a Program</a></li>
             <li><Link href="/contact" className="hover:text-maroon">Contact Academy</Link></li>
           </ul>
         </div>

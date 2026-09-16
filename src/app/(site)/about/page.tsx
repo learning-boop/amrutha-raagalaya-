@@ -7,13 +7,13 @@ import { Icon } from "@/components/Icon";
 import { values } from "@/lib/content";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = { title: "About the Academy", description: `The story, vision, teaching philosophy and cultural values of ${site.name}, a devotional Carnatic music academy in Vijayawada.` };
+export const metadata: Metadata = { title: "About the Academy", description: `The story, vision, teaching philosophy and traditional values of ${site.name}, a devotional Carnatic music academy in Guntur.` };
 
 const philosophy = [
   { icon: "veena", title: "Authenticity first", text: "We teach the Carnatic system as it has been passed down — swara, tala, sahitya and bhava — without shortcuts." },
   { icon: "hands", title: "Patience with children", text: "Each child learns at their own pace. Encouragement comes first; correction is gentle and consistent." },
   { icon: "lamp", title: "Discipline as devotion", text: "Regular practice, respect for the guru and the music, and a calm classroom are the foundation of every lesson." },
-  { icon: "temple", title: "Music that is lived", text: "Students perform at temples and cultural gatherings, so what they learn becomes part of their life, not just a lesson." },
+  { icon: "temple", title: "Music that is lived", text: "Students perform at temples and devotional gatherings, so what they learn becomes part of their life, not just a lesson." },
 ];
 
 export default function AboutPage() {
@@ -25,7 +25,7 @@ export default function AboutPage() {
             <SectionHeading as="h1" center={false} eyebrow="About the academy" title="Our story" />
             <div className="mt-5 grid gap-4 text-ink-2 text-lg max-w-[62ch]">
               <p>{site.shortName} was founded with a simple belief: that Carnatic music is not only an art to be learned, but a tradition to be nurtured and a harmony to be shared.</p>
-              <p>What began as a small group of children learning swaras has grown into a devotional academy — one that teaches the classical form with care and carries it onto temple, wedding and cultural stages across Andhra Pradesh.</p>
+              <p>What began as a small group of children learning swaras has grown into a devotional academy in Guntur — one that teaches the classical form to students of every age, and carries it onto temple and wedding stages across Andhra Pradesh.</p>
               <p className="font-serif italic text-xl text-ink">“Music is not only something we learn. It is a tradition we nurture, a culture we carry forward, and a harmony we share.”</p>
             </div>
           </div>
@@ -38,12 +38,12 @@ export default function AboutPage() {
           <div className="lift bg-offwhite border border-line rounded-card p-8">
             <Icon name="lotus" className="w-9 h-9 text-gold mb-3" />
             <h2 className="text-3xl">Our vision</h2>
-            <p className="mt-3 text-ink-2">A generation of children who carry Indian classical and devotional music forward with confidence, discipline and love — keeping the tradition alive in homes, temples and communities.</p>
+            <p className="mt-3 text-ink-2">A generation of students who carry Indian classical and devotional music forward with confidence, discipline and love — keeping the tradition alive in homes, temples and communities.</p>
           </div>
           <div className="lift bg-offwhite border border-line rounded-card p-8">
             <Icon name="note" className="w-9 h-9 text-gold mb-3" />
             <h2 className="text-3xl">Our mission</h2>
-            <p className="mt-3 text-ink-2">To teach authentic Carnatic music to children in a warm, structured environment, and to offer devotional and traditional music programs that honour every sacred occasion.</p>
+            <p className="mt-3 text-ink-2">To teach authentic Carnatic music to students of every age in a warm, structured environment, and to offer devotional and traditional music programs that honour every sacred occasion.</p>
           </div>
         </Container>
       </section>
@@ -64,7 +64,7 @@ export default function AboutPage() {
 
       <section className="bg-cream py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Cultural values" title="Tradition, discipline, harmony" />
+          <SectionHeading eyebrow="Our values" title="Tradition, discipline, harmony" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {values.map((v) => (
               <div key={v.title} className="flex flex-col gap-2.5 px-6 py-6 border-t border-gold-soft">
@@ -83,7 +83,7 @@ export default function AboutPage() {
           <div>
             <SectionHeading center={false} eyebrow="Instructor · Meet the Guru" title={site.teacher} />
             <div className="mt-4 grid gap-3 text-ink-2 max-w-[62ch]">
-              <p>{site.teacher} is the founder and principal teacher of {site.shortName}, trained in the Carnatic tradition under respected gurus, with years of experience teaching children and performing devotional music at temples and cultural events.</p>
+              <p>{site.teacher} is the founder and principal teacher of {site.shortName}, trained in the Carnatic tradition under respected gurus, with years of experience teaching students of all ages and performing devotional music at temples and traditional occasions.</p>
               <p className="text-[0.85rem] italic">[Replace with the teacher’s real biography, training lineage and performance highlights.]</p>
             </div>
           </div>
