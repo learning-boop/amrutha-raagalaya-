@@ -1,17 +1,19 @@
 import Link from "next/link";
 import { requireAdmin } from "@/lib/dal";
 import { db, hasDatabase } from "@/lib/db";
+import { countNewEnquiries } from "@/lib/enquiries";
 
 async function counts() {
   if (!hasDatabase) return null;
   try {
-    const [photos, posts, drafts, trialRequests] = await Promise.all([
+    const [photos, posts, drafts, trialRequests, newEnquiries] = await Promise.all([
       db.galleryImage.count(),
       db.blogPost.count({ where: { published: true } }),
       db.blogPost.count({ where: { published: false } }),
       db.trialBooking.count({ where: { status: "pending", slot: { startsAt: { gt: new Date() } } } }),
+      countNewEnquiries(),
     ]);
-    return { photos, posts, drafts, trialRequests };
+    return { photos, posts, drafts, trialRequests, newEnquiries };
   } catch {
     return null;
   }
@@ -24,7 +26,8 @@ export default async function AdminHome() {
   const cards = [
     { href: "/admin/gallery", title: "Gallery", body: "Upload photos, write captions and set categories.", count: stats && `${stats.photos} photos` },
     { href: "/admin/blog", title: "Blog", body: "Write posts, add a cover image and publish.", count: stats && `${stats.posts} published · ${stats.drafts} drafts` },
-    { href: "/admin/trials", title: "Trial classes", body: "Add free times, confirm parents' bookings and send WhatsApp confirmations.", count: stats && (stats.trialRequests > 0 ? `${stats.trialRequests} waiting for your reply` : "No new requests") },
+    { href: "/admin/trials", title: "Trial classes", body: "Add free times, confirm bookings and send WhatsApp confirmations.", count: stats && (stats.trialRequests > 0 ? `${stats.trialRequests} waiting for your reply` : "No new requests") },
+    { href: "/admin/enquiries", title: "Enquiries", body: "Messages sent from the contact page forms — classes and devotional programs.", count: stats && (stats.newEnquiries > 0 ? `${stats.newEnquiries} waiting for your reply` : "No new enquiries") },
   ];
 
   return (

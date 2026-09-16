@@ -13,6 +13,7 @@ const links = [
   { href: "/admin/gallery", label: "Gallery" },
   { href: "/admin/blog", label: "Blog" },
   { href: "/admin/trials", label: "Trial classes" },
+  { href: "/admin/enquiries", label: "Enquiries" },
 ];
 
 export default async function AdminLayout({ children }: LayoutProps<"/admin">) {

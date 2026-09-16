@@ -142,6 +142,18 @@ Vercel and your computer use the same Neon database.
 - Bookings close 1 hour before a slot starts. A time with a booking on it cannot
   be removed until that booking is cancelled.
 
+**Enquiries** (`/admin/enquiries`)
+- The two forms on **`/contact`** — *Enquire about classes* and *Enquire about a
+  program* — now save straight to the website. Nothing depends on the visitor
+  opening WhatsApp afterwards, so no enquiry is lost.
+- New ones appear under **Waiting for a reply**, and the dashboard shows how many
+  are outstanding.
+- **Reply on WhatsApp** opens WhatsApp with an opening line already written,
+  including the student's age or the occasion and date. Nothing is sent until
+  you press send in WhatsApp.
+- **Mark handled** moves it out of the waiting list once you have replied;
+  **Reopen** puts it back. **Delete** removes it for good.
+
 ---
 
 ## How it fits together

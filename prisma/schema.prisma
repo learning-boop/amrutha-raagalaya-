@@ -93,3 +93,27 @@ model TrialBooking {
   @@index([status, createdAt])
   @@index([phone, status])
 }
+
+/// A message sent from the enquiry forms on /contact. Saved here rather than
+/// handed off to WhatsApp, so nothing is lost if the visitor never opens it.
+model Enquiry {
+  id        String   @id @default(cuid())
+  /// "classes" or "program".
+  kind      String
+  name      String
+  /// WhatsApp number as digits with country code, e.g. 919876543210.
+  phone     String
+  /// Classes enquiries only.
+  age       Int?
+  /// Program enquiries only: occasion, date and venue as typed.
+  occasion  String?
+  eventDate String?
+  location  String?
+  message   String?
+  /// new → handled. The admin marks it handled once they have replied.
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+  handledAt DateTime?
+
+  @@index([status, createdAt])
+}

@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <section className="pt-12 pb-10 lg:pt-16">
         <Container>
-          <SectionHeading as="h1" eyebrow="Contact / enquiry" title="We’d love to hear from you" lead="Choose what you’d like to ask about. Every option reaches the academy on WhatsApp — we usually reply the same day." />
+          <SectionHeading as="h1" eyebrow="Contact / enquiry" title="We’d love to hear from you" lead="Choose what you’d like to ask about. Send the form below and it reaches the academy straight away, or message us on WhatsApp — we usually reply the same day." />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Music Classes</Button>
             <Button href={waLink(messages.program)} external variant="outline">Enquire About a Devotional Program</Button>
@@ -27,13 +27,13 @@ export default function ContactPage() {
           <div className="bg-offwhite border border-line rounded-card p-7 md:p-9">
             <p className="eyebrow">Music classes</p>
             <h2 className="text-3xl mt-1">Enquire about classes</h2>
-            <p className="text-ink-2 mt-2 mb-6">For children aged 4 to 15. Tell us a little about your child and we will share timings, fees and a trial-class slot.</p>
+            <p className="text-ink-2 mt-2 mb-6">For every age group — children from about 4 years, teenagers and adults. Tell us a little about the student and we will share timings, fees and a trial-class slot.</p>
             <EnquiryForm kind="classes" />
           </div>
           <div className="bg-offwhite border border-line rounded-card p-7 md:p-9">
             <p className="eyebrow">Devotional programs</p>
             <h2 className="text-3xl mt-1">Enquire about a program</h2>
-            <p className="text-ink-2 mt-2 mb-6">Temple festivals, weddings, traditional functions and cultural events. Share the occasion and date and we will suggest a program.</p>
+            <p className="text-ink-2 mt-2 mb-6">Temple festivals, weddings and traditional functions — devotional programs only. Share the occasion and date and we will suggest a program.</p>
             <EnquiryForm kind="program" />
           </div>
         </Container>
