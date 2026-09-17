@@ -127,10 +127,8 @@ Vercel and your computer use the same Neon database.
 - **Add available times** — pick a date, start time, duration, and *Online (Zoom)*
   or *In person*. Use *Repeat weekly* to add the same time for several weeks at
   once. All times are India time (IST).
-- Parents see open times at **`/book-trial`** (linked from the *Book a Trial
-  Class* buttons and the footer) and send a request with their child's name,
-  age and WhatsApp number. Families abroad also see each time in their own time
-  zone.
+- The public *Book a Trial Class* page (`/book-trial`) has been removed; old
+  links redirect to `/contact`. Earlier bookings still appear here.
 - New requests appear under **Needs your reply**, and the dashboard shows how
   many are waiting. **Confirm** or **Decline**.
 - After confirming, press **Send confirmation on WhatsApp**. It opens WhatsApp

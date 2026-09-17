@@ -226,7 +226,7 @@ export function declineMessage(b: MessageBooking, s: MessageSlot) {
     ``,
     `Thank you for your interest in ${site.shortName}. Unfortunately the trial slot on ${formatIstDateTime(s.startsAt)} is no longer available.`,
     ``,
-    `Please choose another time here: ${site.url}/book-trial`,
+    `Please send us an enquiry here: ${site.url}/contact`,
     `Or simply reply to this message and we will find a time that suits ${b.childName}.`,
   ].join("\n");
 }

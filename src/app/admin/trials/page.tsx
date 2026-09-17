@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { connection } from "next/server";
 import { requireAdmin } from "@/lib/dal";
 import { db, hasDatabase } from "@/lib/db";
@@ -81,8 +80,8 @@ export default async function AdminTrialsPage() {
       <div className="divider" />
       <h1 className="text-3xl">Trial class bookings</h1>
       <p className="mt-3 text-[0.92rem] text-ink-2 max-w-prose">
-        Add the times you are free. Parents choose one on the website&rsquo;s <Link href="/book-trial" target="_blank" className="text-maroon underline underline-offset-2">Book a Trial Class</Link> page,
-        then you confirm here and send the WhatsApp message with one tap.
+        The public Book a Trial Class page has been removed, so families can no longer pick these times on the website.
+        Earlier bookings are still listed here to confirm or cancel.
       </p>
 
       {dbError ? (
