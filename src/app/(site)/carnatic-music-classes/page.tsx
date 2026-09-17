@@ -36,8 +36,7 @@ export default function ClassesPage() {
           <div>
             <SectionHeading as="h1" center={false} eyebrow="Carnatic music classes" title="Carnatic music for every age, taught the traditional way" lead="Structured, patient Carnatic training for all age groups — children from about 4 years, teenagers and adults — from the first swara to the first temple stage." />
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button href={waLink(messages.classes)} external>Enquire About Classes</Button>
-              <Button href="/book-trial" variant="ghost">Book a Trial Class</Button>
+              <Button href={waLink(messages.classes)} external>Enquire About Classes</Button>
             </div>
           </div>
           <Photo src="/images/real/children-class-carpet.jpg" alt="Children learning Carnatic music in class" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" />
@@ -103,7 +102,7 @@ export default function ClassesPage() {
         </Container>
       </section>
 
-      <CtaBand title="Begin your musical journey" primary="Enquire About Classes" secondary="Book a Trial Class" secondaryHref="/book-trial" />
+      <CtaBand title="Begin your musical journey" />
     </>
   );
 }

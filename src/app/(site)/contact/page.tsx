@@ -16,8 +16,7 @@ export default function ContactPage() {
           <SectionHeading as="h1" eyebrow="Contact / enquiry" title="We’d love to hear from you" lead="Choose what you’d like to ask about. Send the form below and it reaches the academy straight away, or message us on WhatsApp — we usually reply the same day." />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Music Classes</Button>
-            <Button href={waLink(messages.program)} external variant="outline">Enquire About a Devotional Program</Button>
-            <Button href={telLink} external variant="ghost"><Icon name="phone" className="w-[18px] h-[18px]" /> {site.phone}</Button>
+            <Button href={waLink(messages.program)} external variant="outline">Enquire About a Devotional Program</Button>
           </div>
         </Container>
       </section>

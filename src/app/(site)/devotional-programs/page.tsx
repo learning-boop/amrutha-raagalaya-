@@ -58,7 +58,7 @@ export default function ProgramsPage() {
         </Container>
       </section>
 
-      <CtaBand title="Planning a temple festival, wedding or function?" lead="Tell us the occasion and date. We reply on WhatsApp with a program suggestion, usually the same day." primary="Enquire for Temple / Wedding Programs" primaryMsg={messages.program} secondary="View Class Enquiry" secondaryMsg={messages.classes} />
+      <CtaBand title="Planning a temple festival, wedding or function?" lead="Tell us the occasion and date. We reply on WhatsApp with a program suggestion, usually the same day." primary="Enquire for Temple / Wedding Programs" primaryMsg={messages.program} />
     </>
   );
 }
