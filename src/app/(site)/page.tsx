@@ -39,7 +39,7 @@ export default function HomePage() {
           </ul>
         </div>
         <div className="order-1 lg:order-2 relative min-h-[300px] sm:min-h-[400px] lg:min-h-0 overflow-hidden">
-          <Image src="/images/real/guru-harmonium.jpg" alt={`${site.teacher} singing at the harmonium during a devotional program`} fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover object-[45%_30%]" />
+          <Image src="/images/real/guru-tambura-hero.webp" alt={`${site.teacher} smiling, seated with a tambura in a temple hall`} fill priority sizes="(max-width: 1024px) 100vw, 58vw" className="object-cover object-[50%_20%]" />
           <div className="hidden lg:block absolute left-6 bottom-6 bg-offwhite border border-line rounded-[14px] px-4 py-3 shadow-soft max-w-[240px]">
             <b className="block font-serif font-semibold text-[1.25rem] text-maroon leading-tight">Nurturing Tradition.<br />Inspiring Harmony.</b>
             <span className="text-[0.75rem] text-ink-2">Students perform at temples and devotional festivals</span>
