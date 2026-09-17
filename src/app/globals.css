@@ -75,3 +75,30 @@ details[open] > summary .faq-icon::after { content: "–"; }
 .post-body code { background: var(--color-cream); padding: .1em .35em; border-radius: 4px; font-size: .9em; }
 /* Placeholder shown in the editor when the post is empty. */
 .post-body:focus { outline: none; }
+
+/* ---------------------------------------------------------------------------
+   Text styles
+   --------------------------------------------------------------------------- */
+
+/* 1 · Gold italic key words inside headings. Write *word* in a heading title. */
+.accent { font-style: italic; font-weight: 500; color: var(--color-gold); }
+.on-dark .accent { color: var(--color-gold-soft); }
+
+/* 4 · Decorative drop cap to open long passages. */
+.drop-cap::first-letter,
+.drop-cap-first > p:first-of-type::first-letter {
+  float: left;
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 3.9em;
+  line-height: .78;
+  color: var(--color-maroon);
+  padding: .1em .14em 0 0;
+  margin: .02em .14em 0 0;
+  border-right: 2px solid var(--color-gold-soft);
+}
+
+/* 5 · Soft gold highlighter, gold underline and elegant pull quotes. */
+.hl { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--color-gold-soft) 55%, transparent) 60%); padding: 0 .12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.ul-gold { text-decoration: underline; text-decoration-color: var(--color-gold); text-decoration-thickness: 2px; text-underline-offset: .22em; }
+.pull-quote { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; line-height: 1.45; color: var(--color-ink); border-left: 3px solid var(--color-gold); padding-left: 1rem; }

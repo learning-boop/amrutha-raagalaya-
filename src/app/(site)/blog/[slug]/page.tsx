@@ -65,7 +65,7 @@ export default async function BlogPostPage(props: PageProps<"/blog/[slug]">) {
 
           {/* Stored HTML is whitelisted server-side in src/lib/sanitize.ts before it is saved. */}
           <div
-            className="post-body mx-auto max-w-2xl mt-10"
+            className="post-body drop-cap-first mx-auto max-w-2xl mt-10"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
         </Container>

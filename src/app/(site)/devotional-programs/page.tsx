@@ -18,7 +18,7 @@ export default function ProgramsPage() {
       <section className="pt-12 pb-16 lg:pt-16">
         <Container className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div>
-            <SectionHeading as="h1" center={false} eyebrow="Devotional & traditional programs" title="Devotional music for life’s sacred occasions" lead="Respectful, rehearsed Carnatic and devotional music for temples, weddings and traditional functions. We perform devotional programs only." />
+            <SectionHeading as="h1" center={false} eyebrow="Devotional & traditional programs" title="Devotional music for life’s *sacred* occasions" lead="Respectful, rehearsed Carnatic and devotional music for temples, weddings and traditional functions. We perform devotional programs only." />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href={waLink(messages.program)} external>Book a Devotional Program</Button>
               <Button href="#programs" variant="outline">See program types</Button>
@@ -46,7 +46,7 @@ export default function ProgramsPage() {
 
       <section className="py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Devotional performances" title="How a program comes together" lead="A simple, respectful process from first message to the day of the occasion." />
+          <SectionHeading eyebrow="Devotional performances" title="How a program comes *together*" lead="A simple, respectful process from first message to the day of the occasion." />
           <ol className="mt-10 grid gap-6 md:grid-cols-4">
             {how.map((h, i) => (
               <li key={h} className="flex gap-4 md:block">
@@ -58,7 +58,7 @@ export default function ProgramsPage() {
         </Container>
       </section>
 
-      <CtaBand title="Planning a temple festival, wedding or function?" lead="Tell us the occasion and date. We reply on WhatsApp with a program suggestion, usually the same day." primary="Enquire for Temple / Wedding Programs" primaryMsg={messages.program} />
+      <CtaBand title="Planning a temple festival, wedding or *function*?" lead="Tell us the occasion and date. We reply on WhatsApp with a program suggestion, usually the same day." primary="Enquire for Temple / Wedding Programs" primaryMsg={messages.program} />
     </>
   );
 }

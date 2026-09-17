@@ -1,5 +1,5 @@
 "use client";
-import { useActionState, useEffect, useRef, useState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { sendEnquiry, type EnquiryState } from "@/app/(site)/contact/actions";
 import { site, telLink } from "@/lib/site";
 import { Icon } from "./Icon";
@@ -11,10 +11,12 @@ const OCCASIONS = ["Temple program", "Wedding", "Traditional function", "Other d
 export default function EnquiryForm({ kind }: { kind: Kind }) {
   const [state, action, pending] = useActionState<EnquiryState, FormData>(sendEnquiry, { status: "idle" });
   // Stamped on mount so the action can tell a person from a bot that submits instantly.
-  const [startedAt, setStartedAt] = useState("");
+  const startedAtRef = useRef<HTMLInputElement>(null);
   const doneRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => setStartedAt(String(Date.now())), []);
+  useEffect(() => {
+    if (startedAtRef.current && !startedAtRef.current.value) startedAtRef.current.value = String(Date.now());
+  });
   useEffect(() => {
     if (state.status === "done") doneRef.current?.focus();
   }, [state.status]);
@@ -42,7 +44,7 @@ export default function EnquiryForm({ kind }: { kind: Kind }) {
   return (
     <form action={action} className="grid gap-4">
       <input type="hidden" name="kind" value={kind} />
-      <input type="hidden" name="startedAt" value={startedAt} />
+      <input ref={startedAtRef} type="hidden" name="startedAt" defaultValue="" />
       {/* Honeypot: hidden from people, irresistible to bots. */}
       <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
 

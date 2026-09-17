@@ -6,6 +6,7 @@ import Photo from "@/components/Photo";
 import Button from "@/components/Button";
 import CtaBand from "@/components/CtaBand";
 import { WhatsAppIcon } from "@/components/Icon";
+import { withAccent } from "@/components/Accent";
 import { waLink, messages } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -37,7 +38,7 @@ function Section({ id, emoji, number, title, subtitle, tone = "plain", children 
         <div className="max-w-3xl">
           <p className="eyebrow"><span aria-hidden="true">{emoji}</span> {number ? `Part ${number}` : "Amrutha Raagalaya"}</p>
           <div className="divider" />
-          <h2 className="text-3xl sm:text-4xl">{title}</h2>
+          <h2 className="text-3xl sm:text-4xl">{withAccent(title)}</h2>
           {subtitle && <p className="mt-2 font-serif italic text-xl text-ink-2">{subtitle}</p>}
         </div>
         <div className="mt-8">{children}</div>
@@ -134,9 +135,9 @@ export default function WhyLearnPage() {
       <section className="pt-12 pb-16 lg:pt-16">
         <Container className="grid gap-12 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
           <div>
-            <SectionHeading as="h1" center={false} eyebrow="🌸 Why learn Carnatic music" title="The Power of Carnatic Sangeetam in a Child’s Development" lead="Where Music Becomes a Journey of Knowledge, Discipline, Language & Self-Expression" />
+            <SectionHeading as="h1" center={false} eyebrow="🌸 Why learn Carnatic music" title="The Power of *Carnatic Sangeetam* in a Child’s Development" lead="Where Music Becomes a Journey of Knowledge, Discipline, Language & Self-Expression" />
             <div className="mt-6 grid gap-4 text-ink-2 text-[1.02rem] leading-relaxed max-w-[62ch]">
-              <p>Carnatic Sangeetam is more than the art of singing—it is a beautiful journey of listening, learning, discipline, creativity, and cultural discovery.</p>
+              <p className="drop-cap">Carnatic Sangeetam is more than the art of singing—it is a beautiful journey of listening, learning, discipline, creativity, and cultural discovery.</p>
               <p>From the gentle exploration of basic Swaras to the expressive beauty of Ragas and Keerthanas, Carnatic music introduces children to a structured and enriching form of artistic education.</p>
             </div>
             <div className="mt-8">
@@ -152,7 +153,7 @@ export default function WhyLearnPage() {
           <Prose>
             <p>At Amrutha Raagalaya, we believe that music education can nurture a child&rsquo;s musical abilities while creating opportunities to develop curiosity, perseverance, self-expression, and appreciation for India&rsquo;s rich artistic traditions.</p>
             <p>When Carnatic music is combined with an understanding of Sanskrit and other classical languages found in its repertoire, children can explore not only the melody and rhythm of a composition but also its words, meaning, poetry, and cultural context.</p>
-            <p className="font-serif italic text-xl text-ink">Our vision is to help children learn music with joy, understand what they sing, and develop a lifelong connection with the beauty of Indian classical music.</p>
+            <p className="pull-quote">Our vision is to help children learn music with joy, understand what they sing, and develop a lifelong connection with the beauty of Indian classical music.</p>
           </Prose>
           <nav aria-label="On this page" className="bg-offwhite border border-line rounded-card p-6 self-start">
             <p className="eyebrow">On this page</p>
@@ -164,7 +165,7 @@ export default function WhyLearnPage() {
       </section>
 
       {/* 1 */}
-      <Section id="mind" emoji="🧠" number={1} title="Carnatic Music & the Developing Mind" subtitle="Learning Through Sound, Memory, Rhythm & Practice">
+      <Section id="mind" emoji="🧠" number={1} title="Carnatic Music & the *Developing Mind*" subtitle="Learning Through Sound, Memory, Rhythm & Practice">
         <Prose><p>Carnatic music involves the coordinated practice of several skills:</p></Prose>
         <div className="mt-6">
           <Cards cols={4} items={[
@@ -189,7 +190,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 2 */}
-      <Section id="benefits" emoji="🌟" number={2} title="The Key Benefits of Learning Carnatic Sangeetam" tone="cream">
+      <Section id="benefits" emoji="🌟" number={2} title="The Key *Benefits* of Learning Carnatic Sangeetam" tone="cream">
         <div className="grid gap-5">
           <Benefit emoji="🎵" title="Musical Intelligence & Listening Skills">
             <p>Carnatic music develops through a systematic understanding of sound, pitch, rhythm, and melodic structure.</p>
@@ -245,7 +246,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 3 */}
-      <Section id="sanskrit" emoji="🕉️" number={3} title="Carnatic Music & Sanskrit: A Connection Between Language and Music" subtitle="Understanding the Words Behind the Melody">
+      <Section id="sanskrit" emoji="🕉️" number={3} title="Carnatic Music & *Sanskrit*: A Connection Between Language and Music" subtitle="Understanding the Words Behind the Melody">
         <Prose>
           <p>Carnatic music includes a rich repertoire of compositions in Sanskrit, Telugu, Kannada, Tamil, and other languages.</p>
           <p>Sanskrit holds an important place in many classical musical and literary traditions. Children who learn Sanskrit compositions can explore pronunciation, vocabulary, meaning, and poetic expression alongside musical training.</p>
@@ -262,7 +263,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 4 */}
-      <Section id="sanskrit-value" emoji="🌺" number={4} title="The Educational Value of Learning Sanskrit" subtitle="Language • Literature • Understanding • Cultural Heritage" tone="cream">
+      <Section id="sanskrit-value" emoji="🌺" number={4} title="The Educational *Value* of Learning Sanskrit" subtitle="Language • Literature • Understanding • Cultural Heritage" tone="cream">
         <div className="grid gap-10 lg:grid-cols-2">
           <div className="grid gap-4 content-start">
             <Prose>
@@ -299,7 +300,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 5 */}
-      <Section id="research" emoji="🧠" number={5} title="What Does Scientific Research Say?" subtitle="Understanding the Evidence Responsibly">
+      <Section id="research" emoji="🧠" number={5} title="What Does Scientific *Research* Say?" subtitle="Understanding the Evidence Responsibly">
         <Prose>
           <p>Research on music education has explored the relationship between musical training and children&rsquo;s development.</p>
           <p>Findings suggest that structured music training can support the development of musical skills and engage processes related to listening, memory, timing, and coordination.</p>
@@ -328,7 +329,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 6 */}
-      <Section id="every-child" emoji="⚖️" number={6} title="Children Who Learn Carnatic Music & Those Who Don’t" subtitle="Every Child Has Unique Strengths" tone="cream">
+      <Section id="every-child" emoji="⚖️" number={6} title="Children Who Learn Carnatic Music & *Those Who Don’t*" subtitle="Every Child Has Unique Strengths" tone="cream">
         <Prose>
           <p>Children who learn Carnatic music receive specialized opportunities to develop musical skills. Children who pursue other activities can develop valuable abilities through different learning experiences.</p>
           <p>There is no scientific basis for categorizing one group as universally more intelligent, disciplined, or capable.</p>
@@ -347,12 +348,12 @@ export default function WhyLearnPage() {
         </div>
         <div className="mt-8 max-w-3xl">
           <h3 className="text-2xl">Our Philosophy</h3>
-          <p className="mt-2 font-serif italic text-xl text-ink">The purpose of music education is to help children discover their abilities—not to create comparisons that diminish the value of other forms of learning.</p>
+          <p className="mt-3 pull-quote">The purpose of music education is to help children discover their abilities—not to create comparisons that diminish the value of other forms of learning.</p>
         </div>
       </Section>
 
       {/* 7 */}
-      <Section id="journey" emoji="🌟" number={7} title="From Basic Swaras to Musical Expression" subtitle="A Progressive Learning Journey">
+      <Section id="journey" emoji="🌟" number={7} title="From Basic Swaras to *Musical Expression*" subtitle="A Progressive Learning Journey">
         <Prose><p>Carnatic music education develops through stages, with instruction adapted to the learner&rsquo;s age, ability, and progress.</p></Prose>
         <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
@@ -375,7 +376,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 8 */}
-      <Section id="meaning" emoji="🌸" number={8} title="Why Understanding the Meaning of a Composition Matters" subtitle="Beyond Memorization: Connecting Words, Music & Expression" tone="cream">
+      <Section id="meaning" emoji="🌸" number={8} title="Why Understanding the *Meaning* of a Composition Matters" subtitle="Beyond Memorization: Connecting Words, Music & Expression" tone="cream">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-center">
           <div className="grid gap-4">
             <Prose>
@@ -391,7 +392,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 9 */}
-      <Section id="parents" emoji="👨‍👩‍👧‍👦" number={9} title="A Message to Parents" subtitle="Give Your Child the Gift of Musical Learning">
+      <Section id="parents" emoji="👨‍👩‍👧‍👦" number={9} title="A Message to *Parents*" subtitle="Give Your Child the Gift of Musical Learning">
         <div className="max-w-3xl bg-cream/60 border border-gold-soft rounded-card p-6 md:p-9">
           <Prose>
             <p className="font-serif text-xl text-ink">Dear Parents,</p>
@@ -406,12 +407,12 @@ export default function WhyLearnPage() {
               <li key={t} className="flex gap-2.5"><span aria-hidden="true">{e}</span>{t}</li>
             ))}
           </ul>
-          <p className="mt-6 font-serif italic text-xl text-maroon">The greatest gift we can offer a child is not the pressure to become perfect, but the opportunity to learn, explore, and grow with joy.</p>
+          <p className="mt-6 pull-quote">The greatest gift we can offer a child is not the pressure to become perfect, but the opportunity to learn, explore, and grow with joy.</p>
         </div>
       </Section>
 
       {/* 10 */}
-      <Section id="approach" emoji="🎶" number={10} title="The Amrutha Raagalaya Approach" subtitle="Nurturing Musical Learning With Knowledge, Tradition & Care" tone="cream">
+      <Section id="approach" emoji="🎶" number={10} title="The Amrutha Raagalaya *Approach*" subtitle="Nurturing Musical Learning With Knowledge, Tradition & Care" tone="cream">
         <Prose>
           <p>At Amrutha Raagalaya, we aspire to create a learning environment where children can explore Carnatic music with guidance and encouragement.</p>
           <p>Our educational approach can bring together the following areas:</p>
@@ -430,7 +431,7 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 11 */}
-      <Section id="lifelong" emoji="🌟" number={11} title="The Lifelong Value of Carnatic Sangeetam" subtitle="Music That Grows With the Child">
+      <Section id="lifelong" emoji="🌟" number={11} title="The *Lifelong* Value of Carnatic Sangeetam" subtitle="Music That Grows With the Child">
         <div className="grid gap-4">
           <Prose>
             <p>Carnatic music can remain a meaningful part of a person&rsquo;s life beyond childhood.</p>
@@ -443,18 +444,18 @@ export default function WhyLearnPage() {
       </Section>
 
       {/* 12 */}
-      <Section id="heritage" emoji="🕉️" number={12} title="Music, Sanskrit & Cultural Heritage" subtitle="Preserving Knowledge Through the Next Generation" tone="cream">
+      <Section id="heritage" emoji="🕉️" number={12} title="Music, Sanskrit & Cultural *Heritage*" subtitle="Preserving Knowledge Through the Next Generation" tone="cream">
         <Prose>
           <p>Indian classical music carries generations of musical, literary, and cultural knowledge.</p>
           <p>Carnatic music provides an opportunity for children to encounter compositions in different languages and explore the traditions in which those compositions developed.</p>
           <p>When Sanskrit is included through appropriate language and composition study, children can gain opportunities to explore classical vocabulary, literature, and cultural context.</p>
           <p>At Amrutha Raagalaya, we see music education as a way to encourage curiosity about both the artistic form and the knowledge associated with it.</p>
-          <p className="font-serif italic text-xl text-ink">Learning the tradition can be a bridge between generations—connecting children with the past while giving them opportunities to express themselves in the present.</p>
+          <p className="pull-quote">Learning the tradition can be a bridge between generations—connecting children with the past while giving them opportunities to express themselves in the present.</p>
         </Prose>
       </Section>
 
       {/* 13 */}
-      <Section id="vision" emoji="🌷" number={13} title="Our Vision for Every Child">
+      <Section id="vision" emoji="🌷" number={13} title="Our *Vision* for Every Child">
         <Prose><p>We believe that a meaningful music education should encourage:</p></Prose>
         <div className="mt-6">
           <Cards items={[
@@ -465,7 +466,7 @@ export default function WhyLearnPage() {
             { emoji: "🌱", title: "Lifelong Growth", text: "Helping learners appreciate that musical development is a continuous journey." },
           ]} />
         </div>
-        <p className="max-w-3xl mt-8 font-serif italic text-xl text-ink">Our vision is to inspire children to learn music not merely for performance, but for the knowledge, beauty, discipline, and joy it can bring to their lives.</p>
+        <p className="max-w-3xl mt-8 pull-quote">Our vision is to inspire children to learn music not merely for performance, but for the knowledge, beauty, discipline, and joy it can bring to their lives.</p>
       </Section>
 
       {/* Closing */}
@@ -473,18 +474,18 @@ export default function WhyLearnPage() {
         <Container>
           <p className="eyebrow">🎶 Amrutha Raagalaya</p>
           <div className="divider divider-center" />
-          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem]">Where Every Note Becomes a Journey of Learning</h2>
+          <h2 className="text-3xl sm:text-4xl lg:text-[2.6rem]">Where Every Note Becomes a <span className="accent">Journey</span> of Learning</h2>
           <div className="mt-6 mx-auto grid gap-4 max-w-3xl text-ink-2 text-[1.02rem] leading-relaxed">
             <p>Carnatic Sangeetam is a beautiful blend of melody, rhythm, language, tradition, and artistic expression.</p>
             <p>Through appropriate teaching and regular practice, children can develop musical abilities while gaining meaningful learning experiences.</p>
             <p>When music is accompanied by an understanding of its lyrics and cultural context, it can open additional pathways for exploration and appreciation.</p>
             <p>At Amrutha Raagalaya, we invite children to discover the beauty of Carnatic music in a supportive environment where every learner is encouraged to listen, learn, practice, understand, and express.</p>
           </div>
-          <p className="mt-8 font-serif text-2xl text-maroon">🎵 Learn With Joy. Practice With Purpose. Grow Through Music.</p>
+          <p className="mt-8 font-serif text-2xl text-maroon">🎵 Learn With <span className="hl">Joy</span>. Practice With <span className="hl">Purpose</span>. Grow Through <span className="ul-gold">Music</span>.</p>
         </Container>
       </section>
 
-      <CtaBand title="Nurturing the Next Generation Through Carnatic Sangeetam" lead="Tell us a little about your child and we will share timings and fees. We reply on WhatsApp, usually the same day." />
+      <CtaBand title="Nurturing the Next Generation Through *Carnatic Sangeetam*" lead="Tell us a little about your child and we will share timings and fees. We reply on WhatsApp, usually the same day." />
     </>
   );
 }

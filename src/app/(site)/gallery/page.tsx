@@ -14,7 +14,7 @@ export default async function GalleryPage() {
     <>
       <section className="pt-12 pb-16 lg:pt-16 lg:pb-22">
         <Container>
-          <SectionHeading as="h1" eyebrow="Gallery" title="Moments from the academy" lead="Classes, students, performances and the occasions we have been part of." />
+          <SectionHeading as="h1" eyebrow="Gallery" title="*Moments* from the academy" lead="Classes, students, performances and the occasions we have been part of." />
           <GalleryGrid items={items} />
         </Container>
       </section>

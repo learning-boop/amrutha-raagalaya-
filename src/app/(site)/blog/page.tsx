@@ -21,7 +21,7 @@ export default async function BlogIndexPage() {
           <SectionHeading
             as="h1"
             eyebrow="Blog"
-            title="Notes from the academy"
+            title="Notes from the *academy*"
             lead="Thoughts on practice, raga, festivals and the students who keep the tradition alive."
           />
 

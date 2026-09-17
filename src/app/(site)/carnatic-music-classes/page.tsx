@@ -34,7 +34,7 @@ export default function ClassesPage() {
       <section className="pt-12 pb-16 lg:pt-16">
         <Container className="grid gap-12 lg:grid-cols-[1.05fr_.95fr] lg:items-center">
           <div>
-            <SectionHeading as="h1" center={false} eyebrow="Carnatic music classes" title="Carnatic music for every age, taught the traditional way" lead="Structured, patient Carnatic training for all age groups — children from about 4 years, teenagers and adults — from the first swara to the first temple stage." />
+            <SectionHeading as="h1" center={false} eyebrow="Carnatic music classes" title="Carnatic music for *every age*, taught the traditional way" lead="Structured, patient Carnatic training for all age groups — children from about 4 years, teenagers and adults — from the first swara to the first temple stage." />
             <div className="mt-8 flex flex-wrap gap-3">
               <Button href={waLink(messages.classes)} external>Enquire About Classes</Button>
             </div>
@@ -46,8 +46,8 @@ export default function ClassesPage() {
       <section className="bg-cream py-16 lg:py-22">
         <Container className="grid gap-10 lg:grid-cols-2">
           <div>
-            <SectionHeading center={false} eyebrow="Who can join" title="Every age group, beginners welcome" />
-            <p className="mt-4 text-ink-2 max-w-[62ch]">There is no fixed age limit. We teach children — we especially welcome little ones from about 4 years — as well as teenagers and adults. No prior music knowledge is needed; every student begins with the foundation stage. Young children start with simple swaras and rhythm, while older beginners move faster through the early stages.</p>
+            <SectionHeading center={false} eyebrow="Who can join" title="Every age group, *beginners* welcome" />
+            <p className="mt-4 text-ink-2 max-w-[62ch]"><span className="hl">There is no fixed age limit.</span> We teach children — we especially welcome little ones from about 4 years — as well as teenagers and adults. No prior music knowledge is needed; every student begins with the foundation stage. Young children start with simple swaras and rhythm, while older beginners move faster through the early stages.</p>
           </div>
           <div>
             <h3 className="text-2xl">What students learn</h3>
@@ -60,14 +60,14 @@ export default function ClassesPage() {
 
       <section className="py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Teaching approach" title="From the first swara to the stage" lead="Each stage builds on the last. Every stage ends with something a child can sing at home — and later, on stage." />
+          <SectionHeading eyebrow="Teaching approach" title="From the first *swara* to the stage" lead="Each stage builds on the last. Every stage ends with something a child can sing at home — and later, on stage." />
           <Journey />
         </Container>
       </section>
 
       <section className="bg-cream py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Benefits" title="Why Carnatic music is good for every student" />
+          <SectionHeading eyebrow="Benefits" title="Why Carnatic music is *good* for every student" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {benefits.map((b) => (
               <div key={b.title} className="lift bg-offwhite border border-line rounded-card p-6 flex flex-col gap-2.5">
@@ -82,7 +82,7 @@ export default function ClassesPage() {
 
       <section className="py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Class details" title="Everything families ask about" />
+          <SectionHeading eyebrow="Class details" title="Everything families *ask* about" />
           <dl className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {details.map((d) => (
               <div key={d.label} className="flex gap-4 border-t border-gold-soft pt-5">
@@ -97,12 +97,12 @@ export default function ClassesPage() {
 
       <section className="bg-cream py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Frequently asked questions" title="Questions families ask us" />
+          <SectionHeading eyebrow="Frequently asked questions" title="*Questions* families ask us" />
           <div className="mt-8"><Faq items={faqs} /></div>
         </Container>
       </section>
 
-      <CtaBand title="Begin your musical journey" />
+      <CtaBand />
     </>
   );
 }

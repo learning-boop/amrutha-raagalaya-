@@ -22,11 +22,11 @@ export default function AboutPage() {
       <section className="pt-12 pb-16 lg:pt-16">
         <Container className="grid gap-12 lg:grid-cols-2 lg:items-center">
           <div>
-            <SectionHeading as="h1" center={false} eyebrow="About the academy" title="Our story" />
+            <SectionHeading as="h1" center={false} eyebrow="About the academy" title="Our *story*" />
             <div className="mt-5 grid gap-4 text-ink-2 text-lg max-w-[62ch]">
-              <p>{site.shortName} was founded with a simple belief: that Carnatic music is not only an art to be learned, but a tradition to be nurtured and a harmony to be shared.</p>
+              <p className="drop-cap">{site.shortName} was founded with a simple belief: that Carnatic music is not only an art to be learned, but a tradition to be nurtured and a harmony to be shared.</p>
               <p>What began as a small group of children learning swaras has grown into a devotional academy in Guntur — one that teaches the classical form to students of every age, and carries it onto temple and wedding stages across Andhra Pradesh.</p>
-              <p className="font-serif italic text-xl text-ink">“Music is not only something we learn. It is a tradition we nurture, a culture we carry forward, and a harmony we share.”</p>
+              <p className="pull-quote">“Music is not only something we learn. It is a tradition we nurture, a culture we carry forward, and a harmony we share.”</p>
             </div>
           </div>
           <Photo src="/images/real/guru-harmonium-ensemble.jpg" alt="The guru with students at the harmonium" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 50vw" />
@@ -50,7 +50,7 @@ export default function AboutPage() {
 
       <section className="py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Teaching philosophy" title="How we teach" />
+          <SectionHeading eyebrow="Teaching philosophy" title="How we *teach*" />
           <div className="mt-10 grid gap-5 sm:grid-cols-2">
             {philosophy.map((p) => (
               <div key={p.title} className="flex gap-4 border-t border-gold-soft pt-5">
@@ -64,7 +64,7 @@ export default function AboutPage() {
 
       <section className="bg-cream py-16 lg:py-22">
         <Container>
-          <SectionHeading eyebrow="Our values" title="Tradition, discipline, harmony" />
+          <SectionHeading eyebrow="Our values" title="Tradition, discipline, *harmony*" />
           <div className="mt-10 grid gap-5 md:grid-cols-3">
             {values.map((v) => (
               <div key={v.title} className="flex flex-col gap-2.5 px-6 py-6 border-t border-gold-soft">

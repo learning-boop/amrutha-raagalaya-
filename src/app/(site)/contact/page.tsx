@@ -13,7 +13,7 @@ export default function ContactPage() {
     <>
       <section className="pt-12 pb-10 lg:pt-16">
         <Container>
-          <SectionHeading as="h1" eyebrow="Contact / enquiry" title="We’d love to hear from you" lead="Choose what you’d like to ask about. Send the form below and it reaches the academy straight away, or message us on WhatsApp — we usually reply the same day." />
+          <SectionHeading as="h1" eyebrow="Contact / enquiry" title="We’d love to *hear* from you" lead="Choose what you’d like to ask about. Send the form below and it reaches the academy straight away, or message us on WhatsApp — we usually reply the same day." />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Music Classes</Button>
             <Button href={waLink(messages.program)} external variant="outline">Enquire About a Devotional Program</Button>
@@ -41,7 +41,7 @@ export default function ContactPage() {
       <section className="py-16 lg:py-22">
         <Container className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]">
           <div>
-            <SectionHeading center={false} eyebrow="Contact academy" title="Visit us" />
+            <SectionHeading center={false} eyebrow="Contact academy" title="Visit *us*" />
             <ul className="mt-6 grid gap-5">
               <li className="flex gap-4"><Icon name="pin" className="w-7 h-7 text-gold shrink-0" /><div><b className="block font-semibold">Address</b><span className="text-ink-2">{site.address}</span></div></li>
               <li className="flex gap-4"><Icon name="clock" className="w-7 h-7 text-gold shrink-0" /><div><b className="block font-semibold">Class timings</b><span className="text-ink-2">{site.timings}</span></div></li>

@@ -20,7 +20,7 @@ export default function TestimonialsPage() {
   return (
     <>
       <section className="pt-12 pb-8 lg:pt-16">
-        <Container><SectionHeading as="h1" eyebrow="Testimonials" title="Voices from our academy family" lead="Parents, students and the organizers who have invited us to their occasions." /></Container>
+        <Container><SectionHeading as="h1" eyebrow="Testimonials" title="*Voices* from our academy family" lead="Parents, students and the organizers who have invited us to their occasions." /></Container>
       </section>
       {groups.map((g, i) => (
         <section key={g.type} className={`py-14 ${i % 2 === 0 ? "bg-cream" : ""}`}>
