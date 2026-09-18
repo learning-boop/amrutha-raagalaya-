@@ -20,7 +20,7 @@ export default async function AdminGalleryPage() {
   }
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
+    <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
       <p className="eyebrow">Gallery</p>
       <div className="divider" />
       <h1 className="text-3xl">Photos</h1>

@@ -30,7 +30,7 @@ export default async function AdminEnquiriesPage() {
   const handled = enquiries?.filter((e) => e.status !== "new") ?? [];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-12">
+    <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
       <p className="eyebrow">Admin</p>
       <div className="divider" />
       <h1 className="text-3xl">Enquiries</h1>

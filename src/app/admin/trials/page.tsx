@@ -75,7 +75,7 @@ export default async function AdminTrialsPage() {
   const pending = upcoming.flatMap((s) => s.bookings.filter((b) => b.status === "pending").map((b) => ({ booking: b, slot: s })));
 
   return (
-    <section className="mx-auto max-w-5xl px-4 py-12">
+    <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
       <p className="eyebrow">Trial classes</p>
       <div className="divider" />
       <h1 className="text-3xl">Trial class bookings</h1>

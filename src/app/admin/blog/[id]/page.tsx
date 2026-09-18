@@ -15,7 +15,10 @@ export default async function EditPostPage(props: PageProps<"/admin/blog/[id]">)
   if (!post) notFound();
 
   return (
-    <section className="mx-auto max-w-3xl px-4 py-12">
+    <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
+      {/* The container matches the other admin pages so the left edge never
+          shifts; the editor itself stays narrower for comfortable writing. */}
+      <div className="max-w-3xl">
       <Link href="/admin/blog" className="text-[0.85rem] text-ink-2 hover:text-maroon">← All posts</Link>
 
       <PostEditor
@@ -42,6 +45,7 @@ export default async function EditPostPage(props: PageProps<"/admin/blog/[id]">)
           Delete this post
         </ConfirmSubmit>
       </form>
+      </div>
     </section>
   );
 }

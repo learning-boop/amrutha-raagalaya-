@@ -21,7 +21,7 @@ export default async function AdminBlogPage() {
   }
 
   return (
-    <section className="mx-auto max-w-4xl px-4 py-12">
+    <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
       <p className="eyebrow">Blog</p>
       <div className="divider" />
       <div className="flex flex-wrap items-center gap-4">
@@ -59,18 +59,22 @@ export default async function AdminBlogPage() {
                   /blog/{post.slug} · {post.published ? `published ${formatDate(post.publishedAt)}` : "draft"}
                 </p>
               </div>
+              {/* Fixed columns: every badge and link sits on the same vertical
+                  line, whether or not a post is published. */}
               <span
-                className={`text-[0.75rem] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${
+                className={`shrink-0 w-[72px] text-center text-[0.75rem] font-semibold uppercase tracking-wide px-2.5 py-1 rounded-full ${
                   post.published ? "bg-maroon text-[#FFF8EC]" : "border border-line text-ink-2"
                 }`}
               >
                 {post.published ? "Live" : "Draft"}
               </span>
-              {post.published && (
-                <Link href={`/blog/${post.slug}`} className="text-[0.82rem] text-ink-2 hover:text-maroon">
-                  View →
-                </Link>
-              )}
+              <span className="shrink-0 w-14 text-right text-[0.82rem]">
+                {post.published && (
+                  <Link href={`/blog/${post.slug}`} className="text-ink-2 hover:text-maroon">
+                    View →
+                  </Link>
+                )}
+              </span>
             </li>
           ))}
         </ul>
