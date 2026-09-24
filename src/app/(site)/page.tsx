@@ -5,11 +5,10 @@ import Button from "@/components/Button";
 import Photo from "@/components/Photo";
 import SectionHeading from "@/components/SectionHeading";
 import Journey from "@/components/Journey";
-import TestimonialCard from "@/components/TestimonialCard";
 import CtaBand from "@/components/CtaBand";
 import GoogleReviews from "@/components/GoogleReviews";
 import { Icon, WhatsAppIcon } from "@/components/Icon";
-import { values, whyUs, testimonials } from "@/lib/content";
+import { values, whyUs } from "@/lib/content";
 import { waLink, messages, site } from "@/lib/site";
 import { getPublishedReviews } from "@/lib/reviews";
 
@@ -134,17 +133,6 @@ export default async function HomePage() {
             ))}
           </div>
           <div className="text-center mt-8"><Button href="/gallery" variant="outline">View Full Gallery</Button></div>
-        </Container>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 lg:py-22">
-        <Container>
-          <SectionHeading eyebrow="Testimonials" title="What families *say*" />
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {testimonials.slice(0, 3).map((t) => (<TestimonialCard key={t.who} quote={t.quote} who={t.who} />))}
-          </div>
-          <div className="text-center mt-8"><Link href="/testimonials" className="font-semibold text-maroon hover:underline">Read more →</Link></div>
         </Container>
       </section>
 

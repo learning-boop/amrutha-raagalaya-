@@ -35,15 +35,6 @@ export const faqs = [
   { q: "Do you offer online classes?", a: "Yes, for students outside Guntur we offer online sessions. Message us to check availability." },
 ];
 
-export const testimonials = [
-  { quote: "My daughter sings the geetham she learned this week around the house. The teacher is patient but strict about practice, and she already looks forward to singing at the temple.", who: "Parent of a 9-year-old student", type: "parent" },
-  { quote: "I was nervous on my first stage, but my guru stood beside me. Now I love performing kritis at festivals.", who: "Student, age 13", type: "student" },
-  { quote: "The devotional program for our temple utsavam was dignified and beautifully rehearsed. Devotees asked us who they were.", who: "Temple committee organizer", type: "event" },
-  { quote: "We wanted our son to have something rooted, not just screen time. Within months he was singing Annamayya keerthanas for his grandparents.", who: "Parent of an 11-year-old student", type: "parent" },
-  { quote: "Learning varnams felt hard at first, but the way each pattern is taught made it fun. I performed at Annual Day this year.", who: "Student, age 12", type: "student" },
-  { quote: "The mangala music during our daughter's wedding muhurtham was serene and traditional. Many guests asked for the academy's contact.", who: "Wedding family", type: "event" },
-] as const;
-
 export type GalleryCategory = "classes" | "students" | "performances" | "temples" | "weddings" | "events";
 
 export const galleryCategories: { key: GalleryCategory; label: string }[] = [
