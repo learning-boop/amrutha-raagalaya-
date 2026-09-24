@@ -7,9 +7,11 @@ import SectionHeading from "@/components/SectionHeading";
 import Journey from "@/components/Journey";
 import TestimonialCard from "@/components/TestimonialCard";
 import CtaBand from "@/components/CtaBand";
+import GoogleReviews from "@/components/GoogleReviews";
 import { Icon, WhatsAppIcon } from "@/components/Icon";
 import { values, whyUs, testimonials } from "@/lib/content";
 import { waLink, messages, site } from "@/lib/site";
+import { getPublishedReviews } from "@/lib/reviews";
 
 const moments = [
   { src: "/images/real/temple-hall-wide.jpg", alt: "Devotional program in a temple hall", big: true },
@@ -19,7 +21,9 @@ const moments = [
   { src: "/images/real/stage-ensemble-keyboard.jpg", alt: "Concert with ensemble" },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const reviews = await getPublishedReviews();
+
   return (
     <>
       {/* Hero — split: caption on cream, photo untouched */}
@@ -143,6 +147,8 @@ export default function HomePage() {
           <div className="text-center mt-8"><Link href="/testimonials" className="font-semibold text-maroon hover:underline">Read more →</Link></div>
         </Container>
       </section>
+
+      <GoogleReviews reviews={reviews} />
 
       <CtaBand />
     </>

@@ -7,14 +7,15 @@ import { Icon, type IconName } from "@/components/Icon";
 async function counts() {
   if (!hasDatabase) return null;
   try {
-    const [photos, posts, drafts, trialRequests, newEnquiries] = await Promise.all([
+    const [photos, posts, drafts, trialRequests, newEnquiries, reviews] = await Promise.all([
       db.galleryImage.count(),
       db.blogPost.count({ where: { published: true } }),
       db.blogPost.count({ where: { published: false } }),
       db.trialBooking.count({ where: { status: "pending", slot: { startsAt: { gt: new Date() } } } }),
       countNewEnquiries(),
+      db.review.count({ where: { published: true } }),
     ]);
-    return { photos, posts, drafts, trialRequests, newEnquiries };
+    return { photos, posts, drafts, trialRequests, newEnquiries, reviews };
   } catch {
     return null;
   }
@@ -74,6 +75,22 @@ export default async function AdminHome() {
       unit: stats?.newEnquiries === 1 ? "new message" : "new messages",
       needsAttention: (stats?.newEnquiries ?? 0) > 0,
     },
+    {
+      href: "/admin/reviews",
+      title: "Reviews",
+      icon: "garland",
+      body: "Google reviews that scroll across the home page.",
+      value: stats?.reviews ?? null,
+      unit: stats?.reviews === 1 ? "review shown" : "reviews shown",
+    },
+    {
+      href: "/admin/account",
+      title: "Your login",
+      icon: "shield",
+      body: "Change the email address and password you sign in with.",
+      value: null,
+      unit: "",
+    },
   ];
 
   const waiting = (stats?.trialRequests ?? 0) + (stats?.newEnquiries ?? 0);
@@ -106,8 +123,9 @@ export default async function AdminHome() {
         </p>
       )}
 
-      {/* Two even columns, so four cards never leave an orphan on its own row. */}
-      <div className="mt-8 grid gap-4 sm:gap-5 sm:grid-cols-2">
+      {/* Six cards divide evenly into two or three columns, so no card is ever
+          left alone on the last row. */}
+      <div className="mt-8 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {cards.map((card) => (
           <Link
             key={card.href}
@@ -138,7 +156,7 @@ export default async function AdminHome() {
                 across cards however long the description above runs. */}
             <div className="mt-auto pt-5">
               {card.value === null ? (
-                <span className="text-[0.85rem] text-ink-2/70">—</span>
+                <span className="text-[0.85rem] text-ink-2/70">{stats ? "Open to manage" : "—"}</span>
               ) : (
                 <p className="flex items-baseline gap-2">
                   <span className={`font-serif text-3xl leading-none font-semibold ${card.needsAttention ? "text-gold" : "text-maroon"}`}>

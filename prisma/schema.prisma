@@ -97,7 +97,7 @@ model TrialBooking {
 /// A message sent from the enquiry forms on /contact. Saved here rather than
 /// handed off to WhatsApp, so nothing is lost if the visitor never opens it.
 model Enquiry {
-  id        String   @id @default(cuid())
+  id        String    @id @default(cuid())
   /// "classes" or "program".
   kind      String
   name      String
@@ -111,9 +111,29 @@ model Enquiry {
   location  String?
   message   String?
   /// new → handled. The admin marks it handled once they have replied.
-  status    String   @default("new")
-  createdAt DateTime @default(now())
+  status    String    @default("new")
+  createdAt DateTime  @default(now())
   handledAt DateTime?
 
   @@index([status, createdAt])
+}
+
+/// A Google review copied into the site by an admin, shown in the reviews
+/// carousel. Google's API is not used, so these are entered by hand and the
+/// carousel links to the Google listing for the full, live list.
+model Review {
+  id         String   @id @default(cuid())
+  author     String
+  /// Whole stars, 1–5.
+  rating     Int      @default(5)
+  text       String
+  /// As Google shows it, e.g. "2 months ago" or "March 2026". Optional.
+  reviewedOn String?
+  published  Boolean  @default(true)
+  /// Lower numbers show first; ties fall back to newest added.
+  sortOrder  Int      @default(0)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([published, sortOrder])
 }

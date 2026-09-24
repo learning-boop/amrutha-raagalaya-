@@ -3,7 +3,9 @@ import Container from "@/components/Container";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialCard from "@/components/TestimonialCard";
 import CtaBand from "@/components/CtaBand";
+import GoogleReviews from "@/components/GoogleReviews";
 import { testimonials } from "@/lib/content";
+import { getPublishedReviews } from "@/lib/reviews";
 import Button from "@/components/Button";
 import { site } from "@/lib/site";
 import { SocialIcon } from "@/components/Icon";
@@ -16,7 +18,9 @@ const groups = [
   { type: "event", eyebrow: "Programs & events", title: "Feedback from organizers and families" },
 ] as const;
 
-export default function TestimonialsPage() {
+export default async function TestimonialsPage() {
+  const reviews = await getPublishedReviews();
+
   return (
     <>
       <section className="pt-12 pb-8 lg:pt-16">
@@ -45,6 +49,8 @@ export default function TestimonialsPage() {
           </div>
         </Container>
       </section>
+      <GoogleReviews reviews={reviews} />
+
       <CtaBand />
     </>
   );

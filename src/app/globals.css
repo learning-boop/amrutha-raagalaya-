@@ -104,3 +104,19 @@ details[open] > summary .faq-icon::after { content: "–"; }
 .hl { background: linear-gradient(transparent 60%, color-mix(in srgb, var(--color-gold-soft) 55%, transparent) 60%); padding: 0 .12em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .ul-gold { text-decoration: underline; text-decoration-color: var(--color-gold); text-decoration-thickness: 2px; text-underline-offset: .22em; }
 .pull-quote { font-family: var(--font-serif); font-style: italic; font-size: 1.3rem; line-height: 1.45; color: var(--color-ink); border-left: 3px solid var(--color-gold); padding-left: 1rem; }
+
+/* Google reviews: one long row that slides continuously. The track holds two
+   identical halves, so translating by half its width loops seamlessly. */
+.reviews-viewport { overflow: hidden; -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent); mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent); }
+/* Each card carries its own right margin rather than using `gap`: that makes
+   the two halves exactly equal, so the -50% loop never jumps. */
+.reviews-track { display: flex; width: max-content; padding: 4px 0; animation-name: reviews-scroll; animation-timing-function: linear; animation-iteration-count: infinite; }
+.reviews-track > figure, .reviews-track-copy > figure { margin-right: 20px; }
+.reviews-track-copy { display: contents; }
+@keyframes reviews-scroll { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(-50%, 0, 0); } }
+/* Pause while a visitor reads, and when tabbing through the links inside. */
+.reviews-viewport:hover .reviews-track, .reviews-viewport:focus-within .reviews-track { animation-play-state: paused; }
+@media (prefers-reduced-motion: reduce) {
+  .reviews-track { animation: none; }
+  .reviews-viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
+}

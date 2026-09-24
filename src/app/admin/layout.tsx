@@ -14,6 +14,8 @@ const links = [
   { href: "/admin/blog", label: "Blog" },
   { href: "/admin/trials", label: "Trial classes" },
   { href: "/admin/enquiries", label: "Enquiries" },
+  { href: "/admin/reviews", label: "Reviews" },
+  { href: "/admin/account", label: "Account" },
 ];
 
 export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
@@ -48,7 +50,7 @@ export default async function AdminLayout({ children }: LayoutProps<"/admin">) {
               <Link href="/" className="text-[0.85rem] text-ink-2 hover:text-maroon whitespace-nowrap">
                 View site →
               </Link>
-              <span className="text-[0.85rem] text-ink-2 hidden lg:inline">{admin.name}</span>
+              <Link href="/admin/account" className="text-[0.85rem] text-ink-2 hover:text-maroon hidden lg:inline">{admin.name}</Link>
               <form action={logout}>
                 <button
                   type="submit"
