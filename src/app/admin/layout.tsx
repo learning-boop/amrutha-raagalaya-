@@ -12,7 +12,6 @@ const links = [
   { href: "/admin", label: "Dashboard" },
   { href: "/admin/gallery", label: "Gallery" },
   { href: "/admin/blog", label: "Blog" },
-  { href: "/admin/trials", label: "Trial classes" },
   { href: "/admin/enquiries", label: "Enquiries" },
   { href: "/admin/reviews", label: "Reviews" },
   { href: "/admin/account", label: "Account" },

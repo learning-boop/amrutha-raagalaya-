@@ -7,15 +7,14 @@ import { Icon, type IconName } from "@/components/Icon";
 async function counts() {
   if (!hasDatabase) return null;
   try {
-    const [photos, posts, drafts, trialRequests, newEnquiries, reviews] = await Promise.all([
+    const [photos, posts, drafts, newEnquiries, reviews] = await Promise.all([
       db.galleryImage.count(),
       db.blogPost.count({ where: { published: true } }),
       db.blogPost.count({ where: { published: false } }),
-      db.trialBooking.count({ where: { status: "pending", slot: { startsAt: { gt: new Date() } } } }),
       countNewEnquiries(),
       db.review.count({ where: { published: true } }),
     ]);
-    return { photos, posts, drafts, trialRequests, newEnquiries, reviews };
+    return { photos, posts, drafts, newEnquiries, reviews };
   } catch {
     return null;
   }
@@ -58,15 +57,6 @@ export default async function AdminHome() {
       note: stats ? `${stats.drafts} ${stats.drafts === 1 ? "draft" : "drafts"}` : undefined,
     },
     {
-      href: "/admin/trials",
-      title: "Trial classes",
-      icon: "clock",
-      body: "Confirm bookings and send WhatsApp confirmations.",
-      value: stats?.trialRequests ?? null,
-      unit: stats?.trialRequests === 1 ? "booking to reply to" : "bookings to reply to",
-      needsAttention: (stats?.trialRequests ?? 0) > 0,
-    },
-    {
       href: "/admin/enquiries",
       title: "Enquiries",
       icon: "mail",
@@ -93,7 +83,7 @@ export default async function AdminHome() {
     },
   ];
 
-  const waiting = (stats?.trialRequests ?? 0) + (stats?.newEnquiries ?? 0);
+  const waiting = stats?.newEnquiries ?? 0;
 
   return (
     <section className="mx-auto max-w-5xl px-4 py-10 sm:py-12">
@@ -102,7 +92,7 @@ export default async function AdminHome() {
           <p className="eyebrow">Admin</p>
           <div className="divider" />
           <h1 className="text-3xl sm:text-[2.1rem]">Welcome back, {admin.name}</h1>
-          <p className="mt-2 text-[0.95rem] text-ink-2">Photos, posts, trial classes and enquiries — all in one place.</p>
+          <p className="mt-2 text-[0.95rem] text-ink-2">Photos, posts, enquiries and reviews — all in one place.</p>
         </div>
 
         {stats && (
@@ -123,9 +113,9 @@ export default async function AdminHome() {
         </p>
       )}
 
-      {/* Six cards divide evenly into two or three columns, so no card is ever
-          left alone on the last row. */}
-      <div className="mt-8 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {/* With an odd number of cards the last one would sit alone on its row,
+          so it stretches to fill the width instead. */}
+      <div className="mt-8 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 [&>a:last-child:nth-child(odd)]:sm:col-span-2 [&>a:last-child:nth-child(odd)]:lg:col-span-1">
         {cards.map((card) => (
           <Link
             key={card.href}

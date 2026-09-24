@@ -3,7 +3,7 @@ import { requireAdmin } from "@/lib/dal";
 import { hasDatabase } from "@/lib/db";
 import ConfirmSubmit from "@/components/admin/ConfirmSubmit";
 import { listEnquiries, type AdminEnquiry } from "@/lib/enquiries";
-import { formatIstDateTime, formatPhone, whatsAppTo } from "@/lib/trials";
+import { formatIstDateTime, formatPhone, whatsAppTo } from "@/lib/format";
 import { site } from "@/lib/site";
 import { deleteEnquiry, markHandled, reopenEnquiry } from "./actions";
 

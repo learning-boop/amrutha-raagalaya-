@@ -2,7 +2,7 @@
 
 import { revalidatePath } from "next/cache";
 import { isKind, OCCASIONS, saveEnquiry } from "@/lib/enquiries";
-import { normalizePhone } from "@/lib/trials";
+import { normalizePhone } from "@/lib/format";
 
 /** What the visitor typed, returned on error because React resets the form after submitting. */
 export type Values = {
