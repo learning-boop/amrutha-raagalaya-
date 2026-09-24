@@ -6,9 +6,10 @@ import ImageUploader, { type UploadedImage } from "@/components/admin/ImageUploa
 import { galleryCategories } from "@/lib/content";
 import { addGalleryImage, type GalleryState } from "./actions";
 
-export default function AddPhotoForm() {
+export default function AddPhotoForm({ albums }: { albums: string[] }) {
   const [image, setImage] = useState<UploadedImage | null>(null);
   const [caption, setCaption] = useState("");
+  const [album, setAlbum] = useState("");
   const [state, formAction, pending] = useActionState<GalleryState, FormData>(addGalleryImage, {});
 
   // Empty the form once a photo is safely saved. Done during render rather than
@@ -19,6 +20,7 @@ export default function AddPhotoForm() {
     if (state.ok) {
       setImage(null);
       setCaption("");
+      setAlbum("");
     }
   }
 
@@ -53,18 +55,41 @@ export default function AddPhotoForm() {
               className="w-full min-h-12 px-4 rounded-xl border border-line bg-offwhite focus-visible:outline-3 focus-visible:outline-gold"
             />
           </div>
-          <div>
-            <label htmlFor="category" className="block text-[0.85rem] font-medium mb-1.5">Category</label>
-            <select
-              id="category"
-              name="category"
-              defaultValue="classes"
-              className="w-full min-h-12 px-4 rounded-xl border border-line bg-offwhite focus-visible:outline-3 focus-visible:outline-gold"
-            >
-              {galleryCategories.map((c) => (
-                <option key={c.key} value={c.key}>{c.label}</option>
-              ))}
-            </select>
+          <div className="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label htmlFor="category" className="block text-[0.85rem] font-medium mb-1.5">Category</label>
+              <select
+                id="category"
+                name="category"
+                defaultValue="classes"
+                className="w-full min-h-12 px-4 rounded-xl border border-line bg-offwhite focus-visible:outline-3 focus-visible:outline-gold"
+              >
+                {galleryCategories.map((c) => (
+                  <option key={c.key} value={c.key}>{c.label}</option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label htmlFor="album" className="block text-[0.85rem] font-medium mb-1.5">Programme (optional)</label>
+              {/* A free-text box with suggestions: pick an existing programme
+                  to add to it, or type a new name to start one. */}
+              <input
+                id="album"
+                name="album"
+                list="album-options"
+                value={album}
+                onChange={(e) => setAlbum(e.target.value)}
+                maxLength={80}
+                placeholder="e.g. ASR Studio"
+                className="w-full min-h-12 px-4 rounded-xl border border-line bg-offwhite focus-visible:outline-3 focus-visible:outline-gold"
+              />
+              <datalist id="album-options">
+                {albums.map((name) => (
+                  <option key={name} value={name} />
+                ))}
+              </datalist>
+              <p className="mt-1 text-[0.78rem] text-ink-2">Photos sharing a programme name are grouped together.</p>
+            </div>
           </div>
 
           <input type="hidden" name="url" value={image?.url ?? ""} />

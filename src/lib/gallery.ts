@@ -5,6 +5,8 @@ import { gallery as staticGallery, type GalleryCategory } from "./content";
 export type GalleryItem = {
   id: string;
   category: GalleryCategory;
+  /** Programme or occasion within the category, e.g. "ASR Studio". */
+  album: string | null;
   caption: string;
   src?: string;
 };
@@ -24,6 +26,7 @@ export async function getGalleryItems(): Promise<GalleryItem[]> {
     return rows.map((r) => ({
       id: r.id,
       category: r.category as GalleryCategory,
+      album: r.album,
       caption: r.caption,
       src: r.url,
     }));
@@ -34,5 +37,5 @@ export async function getGalleryItems(): Promise<GalleryItem[]> {
 }
 
 function fallback(): GalleryItem[] {
-  return staticGallery.map((g, i) => ({ id: `static-${i}`, category: g.category, caption: g.caption, src: g.src }));
+  return staticGallery.map((g, i) => ({ id: `static-${i}`, category: g.category, album: null, caption: g.caption, src: g.src }));
 }

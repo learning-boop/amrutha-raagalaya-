@@ -25,6 +25,9 @@ model AdminUser {
 model GalleryImage {
   id        String   @id @default(cuid())
   category  String
+  /// Optional programme or occasion within a category, e.g. "ASR Studio".
+  /// Photos sharing one name are shown together as a sub-group.
+  album     String?
   caption   String
   url       String
   publicId  String?
@@ -34,6 +37,7 @@ model GalleryImage {
   createdAt DateTime @default(now())
 
   @@index([category, sortOrder])
+  @@index([category, album])
 }
 
 model BlogPost {
