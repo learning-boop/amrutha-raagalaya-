@@ -18,7 +18,7 @@ export async function getGalleryItems(): Promise<GalleryItem[]> {
   if (!hasDatabase) return fallback();
   try {
     const rows = await db.galleryImage.findMany({
-      orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }],
+      orderBy: [{ createdAt: "desc" }, { sortOrder: "desc" }],
     });
     if (rows.length === 0) return fallback();
     return rows.map((r) => ({

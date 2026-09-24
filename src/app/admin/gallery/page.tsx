@@ -13,7 +13,7 @@ export default async function AdminGalleryPage() {
   let dbError = !hasDatabase;
   if (hasDatabase) {
     try {
-      photos = await db.galleryImage.findMany({ orderBy: [{ sortOrder: "asc" }, { createdAt: "desc" }] });
+      photos = await db.galleryImage.findMany({ orderBy: [{ createdAt: "desc" }, { sortOrder: "desc" }] });
     } catch {
       dbError = true;
     }
