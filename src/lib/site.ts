@@ -41,6 +41,9 @@ export const nav = [
 export const messages = {
   classes:
     "Namaste! I would like to enquire about Carnatic music classes at Amrutha Raagalaya.",
+  // Sent by the "Enquire About Classes/Programs" buttons, which cover both.
+  classesOrPrograms:
+    "Namaste! I would like to enquire about Carnatic music classes / devotional programs at Amrutha Raagalaya.",
   trial: "Namaste! I would like to book a trial class at Amrutha Raagalaya.",
   program:
     "Namaste! I would like to enquire about a devotional music program (temple / wedding / traditional function) from Amrutha Raagalaya.",

@@ -3,7 +3,7 @@ import Button from "./Button";
 import { withAccent } from "./Accent";
 import { Icon, Kolam, WhatsAppIcon } from "./Icon";
 
-export default function CtaBand({ title = "Begin your *musical* journey", lead = "Send us a message about classes. We reply on WhatsApp, usually the same day.", primary = "Enquire About Classes/Programs", primaryMsg = messages.classes }: { title?: string; lead?: string; primary?: string; primaryMsg?: string }) {
+export default function CtaBand({ title = "Begin your *musical* journey", lead = "Send us a message about classes or devotional programs. We reply on WhatsApp, usually the same day.", primary = "Enquire About Classes/Programs", primaryMsg = messages.classesOrPrograms }: { title?: string; lead?: string; primary?: string; primaryMsg?: string }) {
   return (
     <section className="on-dark relative overflow-hidden bg-maroon text-[#FFF8EC] py-20 text-center">
       <Kolam className="absolute -top-52 -left-52 w-[520px] h-[520px] opacity-[0.09] text-white pointer-events-none" />

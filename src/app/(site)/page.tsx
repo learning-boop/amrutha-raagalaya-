@@ -32,7 +32,7 @@ export default async function HomePage() {
           <h1 className="mt-3 max-w-[13ch] text-4xl sm:text-5xl lg:text-[3.3rem]">Where voices are <span className="accent">carved</span> by the sacred art of Carnatic <span className="accent">sangeetham</span></h1>
           <p className="mt-4 max-w-[46ch] text-lg text-ink-2">Classes for <span className="hl">every age group</span> — from little ones of 4 to grown-up beginners — and devotional music for temples, weddings and traditional functions.</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Classes/Programs</Button>
+            <Button href={waLink(messages.classesOrPrograms)} external><WhatsAppIcon /> Enquire About Classes/Programs</Button>
             <Button href="/devotional-programs" variant="outline">Book a Program</Button>
           </div>
           <ul className="mt-5 flex flex-wrap gap-x-5 gap-y-1.5 text-[0.85rem] text-ink-2">
@@ -73,7 +73,7 @@ export default async function HomePage() {
                 <h3 className="text-2xl">Carnatic Classes for All Ages</h3>
                 <p className="text-ink-2">Children from 4 years, teenagers and adults. Step by step, from the first swara to the first stage — in a warm, disciplined classroom.</p>
                 <div className="mt-auto pt-2 flex flex-wrap items-center gap-4">
-                  <Button href={waLink(messages.classes)} external>Enquire About Classes/Programs</Button>
+                  <Button href={waLink(messages.classesOrPrograms)} external>Enquire About Classes/Programs</Button>
                   <Link href="/carnatic-music-classes" className="font-semibold text-maroon hover:underline">Learn more →</Link>
                 </div>
               </div>

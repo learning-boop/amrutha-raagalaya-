@@ -20,9 +20,7 @@ export default function Footer() {
         <div>
           <h4 className="text-xl mb-2">Enquire</h4>
           <ul className="grid gap-1.5">
-            <li><a href={waLink(messages.classes)} target="_blank" rel="noopener noreferrer" className="hover:text-maroon">Enquire About Classes/Programs</a></li>
-
-            <li><a href={waLink(messages.program)} target="_blank" rel="noopener noreferrer" className="hover:text-maroon">Enquire About a Program</a></li>
+            <li><a href={waLink(messages.classesOrPrograms)} target="_blank" rel="noopener noreferrer" className="hover:text-maroon">Enquire About Classes/Programs</a></li>
             <li><Link href="/contact" className="hover:text-maroon">Contact Academy</Link></li>
           </ul>
         </div>

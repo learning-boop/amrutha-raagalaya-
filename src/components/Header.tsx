@@ -27,7 +27,7 @@ export default function Header() {
           </ul>
         </nav>
         <div className="hidden 2xl:block shrink-0">
-          <Button href={waLink(messages.classes)} external className="whitespace-nowrap">Enquire About Classes/Programs</Button>
+          <Button href={waLink(messages.classesOrPrograms)} external className="whitespace-nowrap">Enquire About Classes/Programs</Button>
         </div>
         <button type="button" className="xl:hidden w-11 h-11 grid place-items-center text-maroon rounded-lg focus-visible:outline-3 focus-visible:outline-gold" aria-expanded={open} aria-controls="mobile-nav" aria-label={open ? "Close menu" : "Open menu"} onClick={() => setOpen(!open)}>
           <Icon name={open ? "close" : "menu"} className="w-7 h-7" />
@@ -41,7 +41,7 @@ export default function Header() {
                 <Link href={n.href} onClick={() => setOpen(false)} className={`block py-3 text-[1.05rem] font-medium border-b border-line last:border-0 ${pathname === n.href ? "text-maroon" : "text-ink"}`}>{n.label}</Link>
               </li>
             ))}
-            <li className="pt-4 pb-2"><Button href={waLink(messages.classes)} external className="w-full">Enquire About Classes/Programs</Button></li>
+            <li className="pt-4 pb-2"><Button href={waLink(messages.classesOrPrograms)} external className="w-full">Enquire About Classes/Programs</Button></li>
           </ul>
         </div>
       )}
