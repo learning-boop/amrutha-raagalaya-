@@ -141,7 +141,7 @@ export default function WhyLearnPage() {
               <p>From the gentle exploration of basic Swaras to the expressive beauty of Ragas and Keerthanas, Carnatic music introduces children to a structured and enriching form of artistic education.</p>
             </div>
             <div className="mt-8">
-              <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Classes</Button>
+              <Button href={waLink(messages.classes)} external><WhatsAppIcon /> Enquire About Classes/Programs</Button>
             </div>
           </div>
           <Photo src="/images/real/child-singing-mic.jpg" alt="A young student singing Carnatic music" className="aspect-[4/5] rounded-t-[200px] rounded-b-[18px]" sizes="(max-width: 1024px) 100vw, 45vw" priority />
