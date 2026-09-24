@@ -2,6 +2,7 @@ import { connection } from "next/server";
 import { requireAdmin } from "@/lib/dal";
 import { db, hasDatabase } from "@/lib/db";
 import { DetailsForm, PasswordForm } from "./AccountForms";
+import { logout } from "../auth-actions";
 
 async function loadAdmin(userId: string) {
   await connection();
@@ -31,10 +32,26 @@ export default async function AdminAccountPage() {
         Change the email address and password you use to sign in here. Both changes ask for your current password first.
       </p>
 
-      {dbError || !account ? (
+      {dbError ? (
         <p className="mt-8 rounded-xl border border-gold-soft bg-cream px-4 py-3 text-[0.9rem] text-ink-2">
           The database is not reachable, so your login cannot be changed right now. See <code>README-ADMIN.md</code>.
         </p>
+      ) : !account ? (
+        // The session is valid but its account has since been removed — say so
+        // plainly rather than blaming the database.
+        <div className="mt-8 rounded-xl border border-gold-soft bg-cream px-4 py-3">
+          <p className="text-[0.9rem] text-ink-2">
+            This admin account no longer exists. Please sign out and sign in with a current account.
+          </p>
+          <form action={logout} className="mt-3">
+            <button
+              type="submit"
+              className="inline-flex items-center min-h-10 px-4 rounded-lg border border-line bg-offwhite text-[0.85rem] font-medium hover:border-gold hover:text-maroon transition-colors focus-visible:outline-3 focus-visible:outline-gold"
+            >
+              Sign out
+            </button>
+          </form>
+        </div>
       ) : (
         <div className="mt-8 max-w-2xl space-y-5">
           <DetailsForm name={account.name} email={account.email} />
