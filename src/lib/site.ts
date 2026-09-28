@@ -5,8 +5,7 @@ export const site = {
   description:
     "Authentic Carnatic music classes for every age group — children from 4 years upwards, teenagers and adults — in Guntur, and devotional music programs for temples, weddings and traditional functions.",
   // No trailing slash: paths such as `/blog/...` are appended to this.
-  // Update here if a custom domain is connected in Vercel later.
-  url: "https://amrutha-raagalaya.vercel.app",
+  url: "https://www.armusic.art",
   whatsapp: "919182564906",
   phone: "+91 91825 64906",
   email: "chandana.singer@gmail.com",
